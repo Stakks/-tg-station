@@ -1,4 +1,4 @@
 <!-- Most valid html will work in here, excluding images. -->
-<h4>Welcome to the unoffical 8chan server.</h4>
+<h4>Welcome to the unofficial 8chan server.</h4>
 <h3>Please do me a favour and read the rules. Thank you.</h3>
-<h4>We're looking for coders. If you hate yourself enough to code with byond code, Please contact either 8chanserverhost or Chaosyourgod over the byond client.</h4>
+<h4>We're looking for admins or coders. If you hate yourself enough to code with byond code or you despise your sleeping hours to administrate on a shitty autism container, Please contact 8chanserverhost over the byond client.</h4>

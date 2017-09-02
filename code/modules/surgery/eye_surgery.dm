@@ -20,8 +20,8 @@
 	user.visible_message("<span class='notice'>[user] successfully fixes [target]'s eyes!</span>")
 	target.disabilities &= ~BLIND
 	target.disabilities &= ~NEARSIGHT
-	target.eye_blurry = 35	//this will fix itself slowly.
-	target.eye_stat = 0
+	target.health_status.vision_blurry = 35	//this will fix itself slowly.
+	target.health_status.vision_damage = 0
 	return 1
 
 /datum/surgery_step/fix_eyes/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

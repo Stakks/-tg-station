@@ -76,7 +76,7 @@
 	src << S
 
 /mob/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, surround = 1)
-	if(!client || ear_deaf > 0)
+	if(!client || health_status.aural_audio > 0)
 		return
 	..()
 

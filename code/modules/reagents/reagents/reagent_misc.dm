@@ -194,20 +194,20 @@
 	data++
 	M.jitteriness = max(M.jitteriness-5,0)
 	if(data >= 30)		// 12 units, 54 seconds @ metabolism 0.4 units & tick rate 1.8 sec
-		if (!M.stuttering) M.stuttering = 1
-		M.stuttering += 4
+		if (!M.health_status.verbal_stutter) M.health_status.verbal_stutter = 1
+		M.health_status.verbal_stutter += 4
 		M.Dizzy(5)
 		if(iscultist(M) && prob(5))
 			M.say(pick("Av'te Nar'sie","Pa'lid Mors","INO INO ORA ANA","SAT ANA!","Daim'niodeis Arc'iai Le'eones","Egkau'haom'nai en Chaous","Ho Diak'nos tou Ap'iron","R'ge Na'sie","Diabo us Vo'iscum","Si gn'um Co'nu"))
 	if(data >= 75 && prob(33))	// 30 units, 135 seconds
-		if (!M.confused) M.confused = 1
-		M.confused += 3
+		if (!M.health_status.spatial_confuse) M.health_status.spatial_confuse = 1
+		M.health_status.spatial_confuse += 3
 		if(iscultist(M))
 			ticker.mode.remove_cultist(M.mind)
 			holder.remove_reagent(src.id, src.volume)	// maybe this is a little too perfect and a max() cap on the statuses would be better??
 			M.jitteriness = 0
-			M.stuttering = 0
-			M.confused = 0
+			M.health_status.verbal_stutter = 0
+			M.health_status.spatial_confuse = 0
 	if(!holder)
 		return
 	holder.remove_reagent(src.id, 0.4)	//fixed consumption to prevent balancing going out of whack
@@ -440,9 +440,9 @@
 
 /datum/reagent/cryptobiolin/on_mob_life(var/mob/living/M as mob)
 	M.Dizzy(1)
-	if(!M.confused)
-		M.confused = 1
-	M.confused = max(M.confused, 20)
+	if(!M.health_status.spatial_confuse)
+		M.health_status.spatial_confuse = 1
+	M.health_status.spatial_confuse = max(M.health_status.spatial_confuse, 20)
 	..()
 	return
 
@@ -839,8 +839,8 @@
 		else //The spacetime continuum thinks you've had enough fun.
 			do_teleport(M, get_turf(M), 12/blink_range, asoundin = 'sound/effects/phasein.ogg')
 
-			if (M.confused <= 6)
-				M.confused += 2
+			if (M.health_status.spatial_confuse <= 6)
+				M.health_status.spatial_confuse += 2
 
 			if(prob(17))
 				M.visible_message("<span class = 'danger'>[M]'s hands seem to flicker and vanish for a moment!</span>")

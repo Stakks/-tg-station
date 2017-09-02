@@ -106,7 +106,7 @@
 		heart_attack = 0
 	jitteriness += 1000 //High numbers for violent convulsions
 	do_jitter_animation(jitteriness)
-	stuttering += 2
+	health_status.verbal_stutter += 2
 	Stun(2)
 	spawn(20)
 		src.jitteriness -= 990 //Still jittery, but vastly less
@@ -179,25 +179,25 @@
 			if(1)
 				src << "<span class='warning'>Your eyes sting a little.</span>"
 				if(prob(40))
-					eye_stat += 1
+					health_status.vision_damage += 1
 
 			if(2)
 				src << "<span class='warning'>Your eyes burn.</span>"
-				eye_stat += rand(2, 4)
+				health_status.vision_damage += rand(2, 4)
 
 			else
 				src << "Your eyes itch and burn severely!</span>"
-				eye_stat += rand(12, 16)
+				health_status.vision_damage += rand(12, 16)
 
-		if(eye_stat > 10)
-			eye_blind += damage
-			eye_blurry += damage * rand(3, 6)
+		if(health_status.vision_damage > 10)
+			health_status.vision_blindness += damage
+			health_status.vision_blurry += damage * rand(3, 6)
 
-			if(eye_stat > 20)
-				if (prob(eye_stat - 20))
+			if(health_status.vision_damage > 20)
+				if (prob(health_status.vision_damage - 20))
 					src << "<span class='warning'>Your eyes start to burn badly!</span>"
 					disabilities |= NEARSIGHT
-				else if(prob(eye_stat - 25))
+				else if(prob(health_status.vision_damage - 25))
 					src << "<span class='warning'>You can't see anything!</span>"
 					disabilities |= BLIND
 			else

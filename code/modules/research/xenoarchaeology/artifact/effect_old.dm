@@ -108,7 +108,7 @@
 				if (istype(user, /mob/living/carbon/))
 					user << "<span class='warning'>A powerful force overwhelms your consciousness.</span>"
 					user.weakened += 45
-					user.stuttering += 45
+					user.health_status.verbal_stutter += 45
 					if(prob(50))
 						user.stunned += rand(1,10)
 					return 1
@@ -154,7 +154,7 @@
 			if("sleepy")
 				user << pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>")
 				user.drowsyness = min(user.drowsyness + rand(5,25), 50)
-				user.eye_blurry = min(user.eye_blurry + rand(1,3), 50)
+				user.health_status.vision_blurry = min(user.health_status.vision_blurry + rand(1,3), 50)
 				return 1
 	else if (src.effectmode == "aura")
 		switch(src.effecttype)
@@ -192,7 +192,7 @@
 						M << "<span class='warning'>Your body goes numb for a moment.</span>"
 						M.stunned += 2
 						M.weakened += 2
-						M.stuttering += 2
+						M.health_status.verbal_stutter += 2
 				return 1
 			if("roboheal")
 				for (var/mob/living/silicon/robot/M in range(src.aurarange,originator))
@@ -249,7 +249,7 @@
 					if(prob(10))
 						M << pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>")
 					M.drowsyness = min(M.drowsyness + 1, 25)
-					M.eye_blurry = min(M.eye_blurry + 1, 25)
+					M.health_status.vision_blurry = min(M.health_status.vision_blurry + 1, 25)
 				return 1
 	else if (src.effectmode == "pulse")
 		for(var/mob/O in viewers(originator, null))
@@ -289,7 +289,7 @@
 					M << "<span class='warning'>A wave of energy overwhelms your senses!</span>"
 					M.paralysis += 3
 					M.weakened += 4
-					M.stuttering += 4
+					M.health_status.verbal_stutter += 4
 				return 1
 			if("roboheal")
 				for (var/mob/living/silicon/robot/M in range(src.aurarange,originator))
@@ -383,7 +383,7 @@
 					if(prob(50))
 						M.drowsyness = min(M.drowsyness + rand(1,5), 25)
 					if(prob(50))
-						M.eye_blurry = min(M.eye_blurry + rand(1,5), 25)
+						M.health_status.vision_blurry = min(M.health_status.vision_blurry + rand(1,5), 25)
 				return 1
 	else if (src.effectmode == "worldpulse")
 		for(var/mob/O in viewers(originator, null))
@@ -418,7 +418,7 @@
 					M << "<span class='warning'>A powerful force causes you to black out momentarily.</span>"
 					M.paralysis += 5
 					M.weakened += 8
-					M.stuttering += 8
+					M.health_status.verbal_stutter += 8
 				return 1
 			if("roboheal")
 				for (var/mob/living/silicon/robot/M in range(200, originator))
@@ -492,7 +492,7 @@
 			if("sleepy")
 				for(var/mob/living/H in range(200, originator))
 					H.drowsyness = min(H.drowsyness + rand(5,15), 50)
-					H.eye_blurry = min(H.eye_blurry + rand(5,15), 50)
+					H.health_status.vision_blurry = min(H.health_status.vision_blurry + rand(5,15), 50)
 				return 1
 
 //initially for the force field artifact

@@ -124,8 +124,8 @@ you see this shit right here is EXACTLY why I don't code
 	var/mob/living/carbon/M = target
 	var/ear_safety = M.check_ear_prot()
 		if(!ear_safety)
-			(M.ear_damage + 10, 100)
-			M.ear_deaf = 10
+			(M.health_status.aural_audio_intensity + 10, 100)
+			M.health_status.aural_audio = 10
 		M << "<font color='red' size='7'>HONK</font>"
 
 /obj/item/projectile/bullet/henker/New()

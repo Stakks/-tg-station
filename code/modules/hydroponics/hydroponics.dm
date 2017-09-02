@@ -509,6 +509,7 @@
 			else if(istype(reagent_source, /obj/item/weapon/reagent_containers/spray/))
 				visi_msg="[user] sprays [target] with [reagent_source]"
 				playsound(loc, 'sound/effects/spray3.ogg', 50, 1, -6)
+				pestlevel = max(pestlevel - 3, 0) // Now it actually removes pests. Not ideal but it works - it can only be done with a pest spray bottle (eg reagents dont matter)
 				irrigate = 1
 			else if(reagent_source.amount_per_transfer_from_this) // Droppers, cans, beakers, what have you.
 				visi_msg="[user] uses [reagent_source] on [target]"

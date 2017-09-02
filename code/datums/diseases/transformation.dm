@@ -105,7 +105,7 @@
 		if(3)
 			if(prob(4))
 				affected_mob << "<span class='danger'>You feel a stabbing pain in your head.</span>"
-				affected_mob.confused += 10
+				affected_mob.health_status.spatial_confuse += 10
 		if(4)
 			if(prob(3))
 				affected_mob.say(pick("Eeek, ook ook!", "Eee-eeek!", "Eeee!", "Ungh, ungh."))

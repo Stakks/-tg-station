@@ -96,7 +96,7 @@
 		M.reagents.add_reagent("ephedrine", 10)
 	if (M.reagents.get_reagent_amount("coffee") < 30)
 		M.reagents.add_reagent("coffee", 15)
-	M.druggy = max(M.druggy, 15)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 15)
 	if(prob(7)) M.emote(pick("twitch","drool","moan","giggle"))
 	..()
 	return
@@ -247,23 +247,23 @@
 		else if ( mouth_covered )	// Reduced effects if partially protected
 			if(prob(5))
 				victim.emote("scream")
-			victim.eye_blurry = max(M.eye_blurry, 3)
-			victim.eye_blind = max(M.eye_blind, 1)
-			victim.confused = max(M.confused, 3)
+			victim.health_status.vision_blurry = max(M.health_status.vision_blurry, 3)
+			victim.health_status.vision_blindness = max(M.health_status.vision_blindness, 1)
+			victim.health_status.spatial_confuse = max(M.health_status.spatial_confuse, 3)
 			victim.damageoverlaytemp = 60
 			victim.Weaken(3)
 			victim.drop_item()
 			return
 		else if ( eyes_covered ) // Eye cover is better than mouth cover
-			victim.eye_blurry = max(M.eye_blurry, 3)
+			victim.health_status.vision_blurry = max(M.health_status.vision_blurry, 3)
 			victim.damageoverlaytemp = 30
 			return
 		else // Oh dear :D
 			if(prob(5))
 				victim.emote("scream")
-			victim.eye_blurry = max(M.eye_blurry, 5)
-			victim.eye_blind = max(M.eye_blind, 2)
-			victim.confused = max(M.confused, 6)
+			victim.health_status.vision_blurry = max(M.health_status.vision_blurry, 5)
+			victim.health_status.vision_blindness = max(M.health_status.vision_blindness, 2)
+			victim.health_status.spatial_confuse = max(M.health_status.spatial_confuse, 6)
 			victim.damageoverlaytemp = 75
 			victim.Weaken(5)
 			victim.drop_item()
@@ -318,28 +318,28 @@
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
 
 /datum/reagent/mushroomhallucinogen/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	switch(current_cycle)
 		if(1 to 5)
-			if (!M.slurring)
-				M.slurring = 1
+			if (!M.health_status.verbal_slur)
+				M.health_status.verbal_slur = 1
 			M.Dizzy(5)
 			if(prob(10))
 				M.emote(pick("twitch","giggle"))
 		if(5 to 10)
-			if (!M.slurring)
-				M.slurring = 1
+			if (!M.health_status.verbal_slur)
+				M.health_status.verbal_slur = 1
 			M.Jitter(10)
 			M.Dizzy(10)
-			M.druggy = max(M.druggy, 35)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 35)
 			if(prob(20))
 				M.emote(pick("twitch","giggle"))
 		if (10 to INFINITY)
-			if (!M.slurring)
-				M.slurring = 1
+			if (!M.health_status.verbal_slur)
+				M.health_status.verbal_slur = 1
 			M.Jitter(20)
 			M.Dizzy(20)
-			M.druggy = max(M.druggy, 40)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 40)
 			if(prob(30))
 				M.emote(pick("twitch","giggle"))
 	..()

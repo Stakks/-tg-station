@@ -263,12 +263,12 @@ var/list/crit_allowed_modes = list(MODE_WHISPER)
 
 /mob/living/proc/treat_message(message)
 	if(getBrainLoss() >= 60)
-		message = derpspeech(message, stuttering)
+		message = derpspeech(message, health_status.verbal_stutter)
 
-	if(stuttering)
+	if(health_status.verbal_stutter)
 		message = stutter(message)
 
-	if(slurring)
+	if(health_status.verbal_slur)
 		if(reagents && reagents.has_reagent_type(/datum/reagent/consumable/ethanol, 125))
 			message = say_superdrunk(message)
 		else
@@ -313,7 +313,7 @@ var/list/crit_allowed_modes = list(MODE_WHISPER)
 	return 0
 
 /mob/living/say_quote(input, list/spans)
-	if (stuttering)
+	if (health_status.verbal_stutter)
 		input = attach_spans(input, spans)
 		return "stammers, \"[input]\""
 	if (getBrainLoss() >= 60)

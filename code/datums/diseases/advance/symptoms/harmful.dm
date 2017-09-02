@@ -143,18 +143,18 @@ Bonus
 				M << "<span class='notice'>Your eyes itch.</span>"
 			if(3, 4)
 				M << "<span class='notice'>Your eyes ache.</span>"
-				M.eye_blurry = 10
-				M.eye_stat += 1
+				M.health_status.vision_blurry = 10
+				M.health_status.vision_damage += 1
 			else
 				M << "<span class='danger'>Your eyes burn horrificly!</span>"
-				M.eye_blurry = 20
-				M.eye_stat += 5
-				if (M.eye_stat >= 10)
+				M.health_status.vision_blurry = 20
+				M.health_status.vision_damage += 5
+				if (M.health_status.vision_damage >= 10)
 					M.disabilities |= NEARSIGHT
-					if (prob(M.eye_stat - 10 + 1) && !(M.eye_blind))
+					if (prob(M.health_status.vision_damage - 10 + 1) && !(M.health_status.vision_blindness))
 						M << "<span class='danger'>You go blind!</span>"
 						M.disabilities |= BLIND
-						M.eye_blind = 1
+						M.health_status.vision_blindness = 1
 	return
 
 
@@ -412,7 +412,7 @@ Bonus
 			if(3, 4)
 				M << "<span class='notice'>[pick("You hear a ringing in your ear.", "Your ears pop.")]</span>"
 			if(5)
-				if(!(M.ear_deaf))
+				if(!(M.health_status.aural_audio))
 					M << "<span class='danger'>Your ears pop and begin ringing loudly!</span>"
 					M.setEarDamage(-1,INFINITY) //Shall be enough
 					spawn(200)
@@ -535,7 +535,7 @@ Bonus
 				M << "<span class='notice'>[pick("You feel confused.", "You forgot what you were thinking about.")]</span>"
 			else
 				M << "<span class='notice'>You are unable to think straight!</span>"
-				M.confused = min(100, M.confused + 3)
+				M.health_status.spatial_confuse = min(100, M.health_status.spatial_confuse + 3)
 
 	return
 

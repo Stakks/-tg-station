@@ -275,10 +275,10 @@
 		C.show_message("<span class='warning'>BANG</span>", 2)
 		C.Stun(5)
 		C.Weaken(5)
-		C.setEarDamage(C.ear_damage + rand(0, 5), max(C.ear_deaf,15))
-		if(C.ear_damage >= 15)
+		C.setEarDamage(C.health_status.aural_audio_intensity + rand(0, 5), max(C.health_status.aural_audio,15))
+		if(C.health_status.aural_audio_intensity >= 15)
 			C << "<span class='warning'>Your ears start to ring badly!</span>"
-		else if(C.ear_damage >= 5)
+		else if(C.health_status.aural_audio_intensity >= 5)
 			C << "<span class='warning'>Your ears start to ring!</span>"
 
 /datum/chemical_reaction/sonic_powder_deafen
@@ -298,10 +298,10 @@
 		C.show_message("<span class='warning'>BANG</span>", 2)
 		C.Stun(5)
 		C.Weaken(5)
-		C.setEarDamage(C.ear_damage + rand(0, 5), max(C.ear_deaf,15))
-		if(C.ear_damage >= 15)
+		C.setEarDamage(C.health_status.aural_audio_intensity + rand(0, 5), max(C.health_status.aural_audio,15))
+		if(C.health_status.aural_audio_intensity >= 15)
 			C << "<span class='warning'>Your ears start to ring badly!</span>"
-		else if(C.ear_damage >= 5)
+		else if(C.health_status.aural_audio_intensity >= 5)
 			C << "<span class='warning'>Your ears start to ring!</span>"
 
 

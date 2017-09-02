@@ -162,12 +162,12 @@
 
 	if(drowsyness)
 		drowsyness--
-		eye_blurry = max(2, eye_blurry)
+		health_status.vision_blurry = max(2, health_status.vision_blurry)
 		if(prob(5))
 			sleeping += 1
 			Paralyse(5)
 
-	confused = max(0, confused - 1)
+	health_status.spatial_confuse = max(0, health_status.spatial_confuse - 1)
 	// decrement dizziness counter, clamped to 0
 	if(resting)
 		dizziness = max(0, dizziness - 5)
@@ -217,7 +217,7 @@
 
 	if (stat == DEAD)
 		lying = 1
-		eye_blind = max(eye_blind, 1)
+		health_status.vision_blindness = max(health_status.vision_blindness, 1)
 	else
 		if(stunned > 0)
 			AdjustStunned(-1)
@@ -226,24 +226,24 @@
 		if (paralysis > 0)
 			AdjustParalysis(-1)
 
-	if(stuttering)
-		stuttering = 0
+	if(health_status.verbal_stutter)
+		health_status.verbal_stutter = 0
 
-	if(eye_blind)
-		eye_blind = 0
+	if(health_status.vision_blindness)
+		health_status.vision_blindness = 0
 
-	setEarDamage((ear_damage < 25 ? 0 : ear_damage),(disabilities & DEAF ? 1 :0))
+	setEarDamage((health_status.aural_audio_intensity < 25 ? 0 : health_status.aural_audio_intensity),(disabilities & DEAF ? 1 :0))
 
 	density = !( src.lying )
 
 	if(disabilities & BLIND)
-		eye_blind = max(eye_blind, 1)
+		health_status.vision_blindness = max(health_status.vision_blindness, 1)
 
-	if(eye_blurry > 0)
-		eye_blurry = 0
+	if(health_status.vision_blurry > 0)
+		health_status.vision_blurry = 0
 
-	if(druggy > 0)
-		druggy = 0
+	if(health_status.vision_druggy > 0)
+		health_status.vision_druggy = 0
 
 	return 1
 

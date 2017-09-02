@@ -249,7 +249,7 @@
 		M << "<span class='danger'>You are stunned by the powerful acid of the Deathnettle!</span>"
 		add_logs(user, M, "attacked", object= "[src.name]")
 
-		M.eye_blurry += force/7
+		M.health_status.vision_blurry += force/7
 		if(prob(20))
 			M.Paralyse(force / 6)
 			M.Weaken(force / 15)

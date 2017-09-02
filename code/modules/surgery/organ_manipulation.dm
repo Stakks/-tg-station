@@ -95,7 +95,7 @@
 		user.visible_message("[user] mend the incision in [target]'s [parse_zone(target_zone)].",
 			"<span class='notice'>You mend the incision in [target]'s [parse_zone(target_zone)].</span>")
 		if(target_zone == "eyes")
-			target.eye_blurry = 35	//this will fix itself slowly.
+			target.health_status.vision_blurry = 35	//this will fix itself slowly.
 		return 1
 	else if(current_type == "insert")
 		I = tool

@@ -68,8 +68,8 @@
 	if(..())
 		var/power = M.powerlevel + rand(0,3)
 		Weaken(power)
-		if (stuttering < power)
-			stuttering = power
+		if (health_status.verbal_stutter < power)
+			health_status.verbal_stutter = power
 		Stun(power)
 		var/stunprob = M.powerlevel * 7 + 10
 		if (prob(stunprob) && M.powerlevel >= 8)

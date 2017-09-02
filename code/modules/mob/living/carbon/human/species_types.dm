@@ -72,7 +72,7 @@
 	hiberncounter = min(max(hiberncounter, 0), hibernmax)
 
 	if(hiberncounter && !hibernating)
-		H.eye_blurry = max(round(hiberncounter/4), H.eye_blurry)
+		H.health_status.vision_blurry = max(round(hiberncounter/4), H.health_status.vision_blurry)
 
 	if(hiberncounter >= hibernsleep)
 		if(!H.sleeping)

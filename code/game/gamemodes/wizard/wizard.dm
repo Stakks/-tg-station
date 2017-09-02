@@ -19,6 +19,10 @@
 
 /datum/game_mode/wizard/pre_setup()
 
+	if(antag_candidates.len == 0)  // Was throwing runtime error with zero-length list pick
+		log_admin("WARNING: Wizard was selected but no valid candidates were found. Aborting Wizard mode.")
+		return 0
+	
 	var/datum/mind/wizard = pick(antag_candidates)
 	wizards += wizard
 	modePlayer += wizard

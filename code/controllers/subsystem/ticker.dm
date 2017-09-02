@@ -47,7 +47,7 @@ var/datum/subsystem/ticker/ticker
 /datum/subsystem/ticker/New()
 	NEW_SS_GLOBAL(ticker)
 
-	login_music = pickweight(list('sound/ambience/title2.ogg' = 31, 'sound/ambience/title1.ogg' = 31, 'sound/ambience/title3.ogg' = 31, 'sound/ambience/clown.ogg' = 7)) // choose title music!
+	login_music = pickweight(list('sound/ambience/title2.ogg' = 31, 'sound/ambience/title1.ogg' = 31, 'sound/ambience/title3.ogg' = 31, 'sound/ambience/title5.ogg' = 31, 'sound/ambience/clown.ogg' = 7)) // choose title music!
 	if(SSevent.holidays && SSevent.holidays[APRIL_FOOLS])
 		login_music = 'sound/ambience/clown.ogg'
 
@@ -176,7 +176,7 @@ var/datum/subsystem/ticker/ticker
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	
+
 #ifdef CREW_OBJECTIVES
 	generate_crew_objectives()
 #endif
@@ -415,9 +415,9 @@ var/datum/subsystem/ticker/ticker
 				world << "<b>[robo.name] (Played by: [robo.mind.key]) was unable to survive the rigors of being a [ismommi(robo)?"MoMMI":"cyborg"] without an AI. Its laws were:</b>"
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
-	
+
 	roboTicker.printList()
-	
+
 	mode.declare_completion()//To declare normal completion.
 
 	//calls auto_declare_completion_* for all modes

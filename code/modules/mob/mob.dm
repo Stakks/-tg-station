@@ -60,7 +60,7 @@ var/next_mob_id = 0
 			else
 				msg = alt
 				type = alt_type
-		if (type & 2 && ear_deaf)//Hearing related
+		if (type & 2 && health_status.aural_audio)//Hearing related
 			if (!( alt ))
 				return
 			else

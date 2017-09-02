@@ -125,18 +125,18 @@
 /mob/living/proc/handle_disabilities()
 	//Eyes
 	if(disabilities & BLIND || stat)	//blindness from disability or unconsciousness doesn't get better on its own
-		eye_blind = max(eye_blind, 1)
-	else if(eye_blind)			//blindness, heals slowly over time
-		eye_blind = max(eye_blind-1,0)
-	else if(eye_blurry)			//blurry eyes heal slowly
-		eye_blurry = max(eye_blurry-1, 0)
+		health_status.vision_blindness = max(health_status.vision_blindness, 1)
+	else if(health_status.vision_blindness)			//blindness, heals slowly over time
+		health_status.vision_blindness = max(health_status.vision_blindness-1,0)
+	else if(health_status.vision_blurry)			//blurry eyes heal slowly
+		health_status.vision_blurry = max(health_status.vision_blurry-1, 0)
 
 	//Ears
 	if(disabilities & DEAF)		//disabled-deaf, doesn't get better on its own
-		setEarDamage(-1, max(ear_deaf, 1))
+		setEarDamage(-1, max(health_status.aural_audio, 1))
 	else
 		// deafness heals slowly over time, unless ear_damage is over 100
-		if(ear_damage < 100)
+		if(health_status.aural_audio_intensity < 100)
 			adjustEarDamage(-0.05,-1)
 
 /mob/living/proc/handle_actions()
@@ -181,8 +181,8 @@
 
 	if(stat == DEAD)
 		return
-	if(eye_blind)
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+	if(health_status.vision_blindness)
+		overlay_fullscreen("blind", /obj/screen/fullscreen/blind, health_status.vision_blindness_intensity)
 		throw_alert("blind", /obj/screen/alert/blind)
 	else
 		clear_fullscreen("blind")
@@ -193,21 +193,21 @@
 		else
 			clear_fullscreen("nearsighted")
 
-		if(eye_blurry)
+		if(health_status.vision_blurry)
 			overlay_fullscreen("blurry", /obj/screen/fullscreen/blurry)
 		else
 			clear_fullscreen("blurry")
 
-		if(druggy)
+		if(health_status.vision_druggy)
 			overlay_fullscreen("high", /obj/screen/fullscreen/high)
 			throw_alert("high", /obj/screen/alert/high)
 		else
 			clear_fullscreen("high")
 			clear_alert("high")
 
-		if(eye_stat > 30)
+		if(health_status.vision_damage > 30)
 			overlay_fullscreen("impaired", /obj/screen/fullscreen/impaired, 2)
-		else if(eye_stat > 20)
+		else if(health_status.vision_damage > 20)
 			overlay_fullscreen("impaired", /obj/screen/fullscreen/impaired, 1)
 		else
 			clear_fullscreen("impaired")

@@ -58,9 +58,9 @@ var/datum/subsystem/air/SSair
 	msg +=  "AS:[active_super_conductivity.len]"
 	..(msg)
 /datum/subsystem/air/Initialize(timeofday, zlevel)
-	setup_allturfs(zlevel)
-	setup_atmos_machinery(zlevel)
-	setup_pipenets(zlevel)
+	spawn(0)  setup_allturfs(zlevel) // We can process this asynchronously
+	spawn(-1) setup_atmos_machinery(zlevel) // Atmos and pipenets depend on eachother though
+	spawn(-1) setup_pipenets(zlevel)
 	..()
 #define MC_AVERAGE(average, current) (0.8*(average) + 0.2*(current))
 /datum/subsystem/air/fire(resumed = 0)
@@ -149,34 +149,38 @@ var/datum/subsystem/air/SSair
 		if(EG.breakdown_cooldown > 20)
 			EG.dismantle()
 /datum/subsystem/air/proc/setup_allturfs(z_level)
-	var/z_start = 1
-	var/z_finish = world.maxz
-	if(1 <= z_level && z_level <= world.maxz)
-		z_level = round(z_level)
-		z_start = z_level
-		z_finish = z_level
-	var/list/turfs_to_init = block(locate(1, 1, z_start), locate(world.maxx, world.maxy, z_finish))
-	for(var/turf/simulated/T in turfs_to_init)
-		T.CalculateAdjacentTurfs()
-		T.excited = 0
-		active_turfs -= T
-		if(T.blocks_air)
-			continue
-		T.update_visuals()
-		for(var/tile in T.atmos_adjacent_turfs)
-			var/turf/enemy_tile = tile
-			var/datum/gas_mixture/enemy_air = enemy_tile.return_air()
-			var/is_active = T.air.compare(enemy_air)
-			if(is_active)
-				testing("Active turf found. Return value of compare(): [is_active]")
-				T.excited = 1
-				active_turfs |= T
-				break
-
-	if(active_turfs.len)
-		warning("There are [active_turfs.len] active turfs at roundstart, this is a mapping error caused by a difference of the air between the adjacent turfs. You can see its coordinates using \"Mapping -> Show roundstart AT list\" verb (debug verbs required)")
-		for(var/turf/simulated/T in active_turfs)
-			active_turfs_startlist += text("[T.x], [T.y], [T.z]\n")
+	set background = 1 // Enable background processing for this function
+	spawn(0)
+	{
+		var/z_start = 1
+		var/z_finish = world.maxz
+		if(1 <= z_level && z_level <= world.maxz)
+			z_level = round(z_level)
+			z_start = z_level
+			z_finish = z_level
+		var/list/turfs_to_init = block(locate(1, 1, z_start), locate(world.maxx, world.maxy, z_finish))
+		for(var/turf/simulated/T in turfs_to_init)
+			T.CalculateAdjacentTurfs()
+			T.excited = 0
+			active_turfs -= T
+			if(T.blocks_air)
+				continue
+			T.update_visuals()
+			for(var/tile in T.atmos_adjacent_turfs)
+				var/turf/enemy_tile = tile
+				var/datum/gas_mixture/enemy_air = enemy_tile.return_air()
+				var/is_active = T.air.compare(enemy_air)
+				if(is_active)
+					testing("Active turf found. Return value of compare(): [is_active]")
+					T.excited = 1
+					active_turfs |= T
+					break
+	
+		if(active_turfs.len)
+			warning("There are [active_turfs.len] active turfs at roundstart, this is a mapping error caused by a difference of the air between the adjacent turfs. You can see its coordinates using \"Mapping -> Show roundstart AT list\" verb (debug verbs required)")
+			for(var/turf/simulated/T in active_turfs)
+				active_turfs_startlist += text("[T.x], [T.y], [T.z]\n")
+	}
 
 /datum/subsystem/air/proc/setup_atmos_machinery(z_level)
 	for (var/obj/machinery/atmospherics/AM in atmos_machinery)

@@ -51,7 +51,7 @@
 			if(src.module_state_3)
 				cell.use(5)
 			cell.use(1)
-			eye_blind = 0
+			health_status.vision_blindness = 0
 			stat = 0
 	else
 		uneq_all()
@@ -99,33 +99,33 @@
 				AdjustWeakened(-1)
 			if (src.paralysis > 0)
 				AdjustParalysis(-1)
-				src.eye_blind = max(eye_blind, 1)
+				src.health_status.vision_blindness = max(health_status.vision_blindness, 1)
 			else
-				src.eye_blind = 0
+				src.health_status.vision_blindness = 0
 
 		else	//Not stunned.
 			src.stat = 0
 
 	else //Dead.
-		src.eye_blind = 1
+		src.health_status.vision_blindness = 1
 
-	if (src.stuttering) src.stuttering--
+	if (src.health_status.verbal_stutter) src.health_status.verbal_stutter--
 
-	if (eye_blind)
-		eye_blind--
+	if (health_status.vision_blindness)
+		health_status.vision_blindness--
 
 	src.density = !( src.lying )
 
 	if (src.disabilities & BLIND)
-		src.eye_blind= max(1, eye_blind)
+		src.health_status.vision_blindness= max(1, health_status.vision_blindness)
 
-	if (src.eye_blurry > 0)
-		src.eye_blurry--
-		src.eye_blurry = max(0, src.eye_blurry)
+	if (src.health_status.vision_blurry > 0)
+		src.health_status.vision_blurry--
+		src.health_status.vision_blurry = max(0, src.health_status.vision_blurry)
 
-	if (src.druggy > 0)
-		src.druggy--
-		src.druggy = max(0, src.druggy)
+	if (src.health_status.vision_druggy > 0)
+		src.health_status.vision_druggy--
+		src.health_status.vision_druggy = max(0, src.health_status.vision_druggy)
 
 	return 1
 
@@ -220,8 +220,8 @@
 		else
 			if(!client.adminobs)
 				reset_view(null)
-	if(eye_blind)
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+	if(health_status.vision_blindness)
+		overlay_fullscreen("blind", /obj/screen/fullscreen/blind, health_status.vision_blindness_intensity)
 	else
 		clear_fullscreen("blind")
 

@@ -183,7 +183,7 @@
 	for(var/mob/living/L in living_mob_list)
 		var/turf/T = get_turf(L.loc)
 		if(T && T in targets)
-			L.eye_blind = max(L.eye_blind, 4)
+			L.health_status.vision_blindness = max(L.health_status.vision_blindness, 4)
 	return
 
 //Toggle Night Vision

@@ -586,7 +586,7 @@
 	if(H.stat == DEAD)
 		H.sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		H.see_in_dark = 8
-		if(!H.druggy)
+		if(!H.health_status.vision_druggy)
 			H.see_invisible = SEE_INVISIBLE_LEVEL_TWO
 		return
 	if(!(SEE_TURFS & H.permanent_sight_flags))
@@ -621,42 +621,48 @@
 	//This is here to fix issues with the vars not being applied correctly
 	H.see_in_dark = ((H.sight & SEE_TURFS) && (H.sight & SEE_MOBS) && (H.sight & SEE_OBJS)) ? 8 : H.see_in_dark
 	H.see_invisible = ((H.sight & SEE_TURFS) && (H.sight & SEE_MOBS) && (H.sight & SEE_OBJS)) ?  SEE_INVISIBLE_MINIMUM : H.see_invisible
+	
 	//	This checks how much the mob's eyewear impairs their vision
 	if(H.tinttotal >= TINT_IMPAIR)
 		if(tinted_weldhelh)
-			H.overlay_fullscreen("tint", /obj/screen/fullscreen/impaired, 2)
+			H.overlay_fullscreen("tint", /obj/screen/fullscreen/impaired, 12)
 		if(H.tinttotal >= TINT_BLIND)
-			H.eye_blind = max(H.eye_blind, 1)
+			H.health_status.vision_blindness = max(H.health_status.vision_blindness, 4)
 	else
 		H.clear_fullscreen("tint")
-	if(H.eye_stat > 30)
-		H.overlay_fullscreen("impaired", /obj/screen/fullscreen/impaired, 2)
-	else if(H.eye_stat > 20)
-		H.overlay_fullscreen("impaired", /obj/screen/fullscreen/impaired, 1)
+		
+	if(H.health_status.vision_damage && H.health_status.vision_damage_intensity)
+		H.overlay_fullscreen("impaired", /obj/screen/fullscreen/impaired, H.health_status.vision_damage_intensity)
 	else
 		H.clear_fullscreen("impaired")
+		
 	if(!H.client)//no client, no screen to update
 		return 1
-	if(H.eye_blind)
-		H.overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		
+	if(H.health_status.vision_blindness)
+		H.overlay_fullscreen("blind", /obj/screen/fullscreen/blind, H.health_status.vision_blindness_intensity)
 		H.throw_alert("blind", /obj/screen/alert/blind)
 	else
 		H.clear_fullscreen("blind")
 		H.clear_alert("blind")
+		
 	if(H.disabilities & NEARSIGHT && !istype(H.glasses, /obj/item/clothing/glasses/regular))
 		H.overlay_fullscreen("nearsighted", /obj/screen/fullscreen/impaired, 1)
 	else
 		H.clear_fullscreen("nearsighted")
-	if(H.eye_blurry)
+		
+	if(H.health_status.vision_blurry)
 		H.overlay_fullscreen("blurry", /obj/screen/fullscreen/blurry)
 	else
 		H.clear_fullscreen("blurry")
-	if(H.druggy)
+		
+	if(H.health_status.vision_druggy)
 		H.overlay_fullscreen("high", /obj/screen/fullscreen/high)
 		H.throw_alert("high", /obj/screen/alert/high)
 	else
 		H.clear_fullscreen("high")
 		H.clear_alert("high")
+		
 	return 1
 
 

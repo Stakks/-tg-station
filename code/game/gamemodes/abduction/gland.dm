@@ -111,7 +111,7 @@
 		if(H == owner)
 			continue
 		H << "<span class='alien'>You hear a buzz in your head </span>"
-		H.confused += 20
+		H.health_status.spatial_confuse += 20
 
 /obj/item/organ/internal/heart/gland/pop
 	origin_tech = "materials=4;biotech=6"

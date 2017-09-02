@@ -2,7 +2,7 @@
 	if(!input)
 		return "says, \"...\""	//not the best solution, but it will stop a large number of runtimes. The cause is somewhere in the Tcomms code
 	verb_say = dna.species.say_mod
-	if(src.slurring)
+	if(src.health_status.verbal_slur)
 		input = attach_spans(input, spans)
 		return "slurs, \"[input]\""
 

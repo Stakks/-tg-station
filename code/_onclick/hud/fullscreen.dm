@@ -85,11 +85,22 @@
 	layer = CRIT_LAYER
 
 /obj/screen/fullscreen/blind
-	icon_state = "blackimageoverlay"
+	icon = 'icons/overlay/fullscreen_radial_inv.dmi'
+	icon_state = "state_"
+	color = "#000000"
+
 	layer = BLIND_LAYER
+	
+/obj/screen/fullscreen/blind/New() // If we set it above, then the image indexing fucks up because of a lame implementation elsewhere
+	icon_state = "state_13"
 
 /obj/screen/fullscreen/impaired
-	icon_state = "impairedoverlay"
+	icon = 'icons/overlay/fullscreen_checker.dmi'
+	icon_state = "state_"
+	color = "#000000"
+	
+/obj/screen/fullscreen/impaired/New() // Same as above
+	icon_state = "state_13"
 
 /obj/screen/fullscreen/blurry
 	icon = 'icons/mob/screen_gen.dmi'

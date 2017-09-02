@@ -14,7 +14,7 @@
 			var/mob/living/carbon/human/H = toucher
 			H << pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>")
 			H.drowsyness = min(H.drowsyness + rand(5,25) * weakness, 50 * weakness)
-			H.eye_blurry = min(H.eye_blurry + rand(1,3) * weakness, 50 * weakness)
+			H.health_status.vision_blurry = min(H.health_status.vision_blurry + rand(1,3) * weakness, 50 * weakness)
 			return 1
 		else if(isrobot(toucher))
 			toucher << "<span class='warning'>SYSTEM ALERT: CPU cycles slowing down.</span>"
@@ -28,7 +28,7 @@
 				if(prob(10))
 					H << pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>")
 				H.drowsyness = min(H.drowsyness + 1 * weakness, 25 * weakness)
-				H.eye_blurry = min(H.eye_blurry + 1 * weakness, 25 * weakness)
+				H.health_status.vision_blurry = min(H.health_status.vision_blurry + 1 * weakness, 25 * weakness)
 		for (var/mob/living/silicon/robot/R in range(src.effectrange,holder))
 			R << "<span class='warning'>SYSTEM ALERT: CPU cycles slowing down.</span>"
 		return 1
@@ -40,7 +40,7 @@
 			if(prob(weakness * 100))
 				H << pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>")
 				H.drowsyness = min(H.drowsyness + rand(5,15) * weakness, 50 * weakness)
-				H.eye_blurry = min(H.eye_blurry + rand(5,15) * weakness, 50 * weakness)
+				H.health_status.vision_blurry = min(H.health_status.vision_blurry + rand(5,15) * weakness, 50 * weakness)
 		for (var/mob/living/silicon/robot/R in range(src.effectrange,holder))
 			R << "<span class='warning'>SYSTEM ALERT: CPU cycles slowing down.</span>"
 		return 1

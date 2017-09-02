@@ -194,7 +194,7 @@
 				if(OI.exists())
 					dat += "<div class='line'>[OI.getDisplayName()]: [OI.organitem.name].</div>"
 /*
-		if(occupant.disabilites & (BLIND | NEARSIGHT) || occupant.eye_stat)
+		if(occupant.disabilites & (BLIND | NEARSIGHT) || occupant.health_status.vision_damage)
 			dat += "<div class='line'><span class='average'>Subject appears to have eye damage.</span></div>"
 */
 	dat += "</div>"
@@ -369,8 +369,8 @@
 /obj/machinery/rapidsexchanger/proc/eye_surgery()
 	occupant.disabilities &= ~BLIND
 	occupant.disabilities &= ~NEARSIGHT
-	occupant.eye_blurry = 35	//this will fix itself slowly.
-	occupant.eye_stat = 0
+	occupant.health_status.vision_blurry = 35	//this will fix itself slowly.
+	occupant.health_status.vision_damage = 0
 	return 1
 
 //From all limbs

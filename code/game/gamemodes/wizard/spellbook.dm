@@ -675,7 +675,7 @@
 /obj/item/weapon/spellbook/oneuse/blind/recoil(mob/user as mob)
 	..()
 	user <<"<span class='warning'>You go blind!</span>"
-	user.eye_blind = 10
+	user.health_status.vision_blindness = 10
 
 /obj/item/weapon/spellbook/oneuse/mindswap
 	spell = /obj/effect/proc_holder/spell/targeted/mind_transfer

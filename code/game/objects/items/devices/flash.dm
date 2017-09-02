@@ -61,7 +61,7 @@
 	add_logs(user, M, "flashed", object="[src.name]")
 	if(user && targeted)
 		if(M.flash_eyes(1, 1))
-			M.confused += power
+			M.health_status.spatial_confuse += power
 			terrible_conversion_proc(M, user)
 			M.Stun(1)
 			user.visible_message("<span class='disarm'>[user] blinds [M] with the flash!</span>")
@@ -69,7 +69,7 @@
 			user.visible_message("<span class='disarm'>[user] fails to blind [M] with the flash!</span>")
 	else
 		if(M.flash_eyes())
-			M.confused += power
+			M.health_status.spatial_confuse += power
 
 /obj/item/device/flash/attack(mob/living/M, mob/user)
 	if(!try_use_flash(user))

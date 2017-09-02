@@ -99,26 +99,26 @@
 	//	src.blinded = 1
 		src.stat = 2
 
-	if (src.stuttering) src.stuttering--
+	if (src.health_status.verbal_stutter) src.health_status.verbal_stutter--
 
-	if (src.eye_blind)
-		src.eye_blind--
+	if (src.health_status.vision_blindness)
+		src.health_status.vision_blindness--
 
 
-	if (src.ear_deaf > 0) src.ear_deaf--
-	if (src.ear_damage < 25)
-		src.ear_damage -= 0.05
-		src.ear_damage = max(src.ear_damage, 0)
+	if (src.health_status.aural_audio > 0) src.health_status.aural_audio--
+	if (src.health_status.aural_audio_intensity < 25)
+		src.health_status.aural_audio_intensity -= 0.05
+		src.health_status.aural_audio_intensity = max(src.health_status.aural_audio_intensity, 0)
 
 	src.density = !( src.lying )
 
-	if (src.eye_blurry > 0)
-		src.eye_blurry--
-		src.eye_blurry = max(0, src.eye_blurry)
+	if (src.health_status.vision_blurry > 0)
+		src.health_status.vision_blurry--
+		src.health_status.vision_blurry = max(0, src.health_status.vision_blurry)
 
-	if (src.druggy > 0)
-		src.druggy--
-		src.druggy = max(0, src.druggy)
+	if (src.health_status.vision_druggy > 0)
+		src.health_status.vision_druggy--
+		src.health_status.vision_druggy = max(0, src.health_status.vision_druggy)
 
 	return 1
 
@@ -226,7 +226,7 @@
 //	if (src.oxygen) src.oxygen.icon_state = "oxy[src.oxygen_alert ? 1 : 0]"
 //	if (src.fire) src.fire.icon_state = "fire[src.fire_alert ? 1 : 0]"
 /*
-	client.screen.Remove(global_hud.blurry,global_hud.druggy)
+	client.screen.Remove(global_hud.blurry,global_hud.health_status.vision_druggy)
 
 	if ((src.blind && src.stat != 2))
 		if(src.blinded)
@@ -236,10 +236,10 @@
 	//		if (src.disabilities & NEARSIGHTED)
 	//			src.client.screen += global_hud.vimpaired
 
-	//		if (src.eye_blurry)
+	//		if (src.health_status.vision_blurry)
 	//			src.client.screen += global_hud.blurry
 
-			if (src.druggy)
+			if (src.health_status.vision_druggy)
 				src.client.screen += global_hud.druggy
 */
 	if (src.stat != 2)
@@ -249,8 +249,8 @@
 //		else
 //			if(!client.adminobs)
 //				reset_view(null)
-	if(eye_blind)
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+	if(health_status.vision_blindness)
+		overlay_fullscreen("blind", /obj/screen/fullscreen/blind, health_status.vision_blindness_intensity)
 	else
 		clear_fullscreen("blind")
 

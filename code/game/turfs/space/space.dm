@@ -24,13 +24,12 @@
 	return QDEL_HINT_LETMELIVE
 
 /turf/space/proc/update_starlight()
-	if(config)
-		if(config.starlight)
-			for(var/turf/T in orange(src,1))
-				if(istype(T,/turf/simulated))
-					set_light(3,2)
-					return
-			set_light(0)
+	//if(config && config.starlight) // Since this is a per-turf call, we can save some processor by moving the safety check to the consumer ... this only happens a few times, anyways
+	for(var/turf/T in orange(src,1))
+		if(istype(T,/turf/simulated)) // Seems like this looks for any adjacent simulated turf, then sets OUR turf to emit light
+			set_light(3,2)
+			return
+	update_light() // Was previously set_light(0), useless since it would fail and fall through to update_light anyways ... just call it directly
 	return
 
 /turf/space/attack_paw(mob/user as mob)

@@ -171,7 +171,7 @@
 				continue
 		M << "<font color='red' size='7'>HONK</font>"
 		M.sleeping = 0
-		M.stuttering += 20
+		M.health_status.verbal_stutter += 20
 		M.adjustEarDamage(0, 30)
 		M.Weaken(3)
 		if(prob(30))

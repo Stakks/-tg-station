@@ -28,7 +28,7 @@
 
 //Flash
 	if(M.flash_eyes())
-		M.eye_stat += rand(1, 3)
+		M.health_status.vision_damage += rand(1, 3)
 		M.Stun(max(10/distance, 3))
 		M.Weaken(max(10/distance, 3))
 
@@ -39,12 +39,12 @@
 	if(!ear_safety)
 		M.Stun(max(10/distance, 3))
 		M.Weaken(max(10/distance, 3))
-		M.setEarDamage(M.ear_damage + rand(0, 5), max(M.ear_deaf,15))
-		if (M.ear_damage >= 15)
+		M.setEarDamage(M.health_status.aural_audio_intensity + rand(0, 5), max(M.health_status.aural_audio,15))
+		if (M.health_status.aural_audio_intensity >= 15)
 			M << "<span class='warning'>Your ears start to ring badly!</span>"
-			if(prob(M.ear_damage - 10 + 5))
+			if(prob(M.health_status.aural_audio_intensity - 10 + 5))
 				M << "<span class='warning'>You can't hear anything!</span>"
 				M.disabilities |= DEAF
 		else
-			if (M.ear_damage >= 5)
+			if (M.health_status.aural_audio_intensity >= 5)
 				M << "<span class='warning'>Your ears start to ring!</span>"

@@ -378,10 +378,10 @@
 	else
 		M.take_organ_damage(7)
 
-	M.eye_blurry += rand(3,4)
-	M.eye_stat += rand(2,4)
-	if (M.eye_stat >= 10)
-		M.eye_blurry += 15+(0.1*M.eye_blurry)
+	M.health_status.vision_blurry += rand(3,4)
+	M.health_status.vision_damage += rand(2,4)
+	if (M.health_status.vision_damage >= 10)
+		M.health_status.vision_blurry += 15+(0.1*M.health_status.vision_blurry)
 		if(M.stat != 2)
 			M << "<span class='danger'>Your eyes start to bleed profusely!</span>"
 		if (!(M.disabilities & (NEARSIGHT | BLIND)))
@@ -391,10 +391,10 @@
 			if(M.stat != 2)
 				M << "<span class='danger'>You drop what you're holding and clutch at your eyes!</span>"
 				M.drop_item()
-			M.eye_blurry += 10
+			M.health_status.vision_blurry += 10
 			M.Paralyse(1)
 			M.Weaken(2)
-		if (prob(M.eye_stat - 10 + 1) && !(M.disabilities & BLIND))
+		if (prob(M.health_status.vision_damage - 10 + 1) && !(M.disabilities & BLIND))
 			if(M.stat != 2)
 				M << "<span class='danger'>You go blind!</span>"
 			M.disabilities |= BLIND

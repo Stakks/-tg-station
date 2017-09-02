@@ -278,7 +278,7 @@ The mutation is now handled in human species life code
 
 /datum/mutation/human/nervousness/on_life(mob/living/carbon/human/owner)
 	if(prob(10))
-		owner.stuttering = max(10, owner.stuttering)
+		owner.health_status.verbal_stutter = max(10, owner.health_status.verbal_stutter)
 
 /datum/mutation/human/deaf
 

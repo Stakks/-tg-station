@@ -25,25 +25,29 @@
 
 /obj/structure/Destroy()
 	if(ticker)
-		cameranet.updateVisibility(src)
+		if(cameranet)
+			cameranet.updateVisibility(src)
 	..()
 
 /obj/structure/New()
 	..()
 	if(ticker)
-		cameranet.updateVisibility(src)
+		if(cameranet)
+			cameranet.updateVisibility(src)
 
 // EFFECTS
 
 /obj/effect/Destroy()
 	if(ticker)
-		cameranet.updateVisibility(src)
+		if(cameranet)
+			cameranet.updateVisibility(src)
 	..()
 
 /obj/effect/New()
 	..()
 	if(ticker)
-		cameranet.updateVisibility(src)
+		if(cameranet)
+			cameranet.updateVisibility(src)
 
 
 // DOORS

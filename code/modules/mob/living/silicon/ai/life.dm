@@ -91,7 +91,7 @@
 			see_in_dark = 0
 			see_invisible = SEE_INVISIBLE_LIVING
 
-			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+			overlay_fullscreen("blind", /obj/screen/fullscreen/blind, health_status.vision_blindness_intensity)
 
 			if(lacks_power())
 				if (aiRestorePowerRoutine==0)

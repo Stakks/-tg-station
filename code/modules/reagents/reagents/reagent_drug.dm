@@ -14,7 +14,7 @@
 //	overdose_threshold = 25
 
 /datum/reagent/drug/space_drugs/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 15)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 15)
 	if(isturf(M.loc) && !istype(M.loc, /turf/space))
 		if(M.canmove)
 			if(prob(10)) step(M, pick(cardinal))
@@ -361,7 +361,7 @@
 	var/high_message = pick("You feel alert.", "You feel like you can see everything more clearly.", "You feel like you need to relax and examine your surroundings.")
 	if(prob(5))
 		M << "<span class='notice'>[high_message]</span>"
-	M.druggy = max(M.druggy, 15)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 15)
 	M.hallucination += 2
 	M.adjustBrainLoss(0.2*REM)
 	M.adjustBruteLoss(-0.2*REM)
@@ -375,7 +375,7 @@
 	M.adjustBrainLoss(2*REM)
 	M.adjustToxLoss(2*REM)
 	M.adjustBruteLoss(2*REM)
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	M.hallucination += 3
 	if(prob(5))
 		M << pick("<span class = 'userdanger'>Your head feels like it's ripping apart!</span>","<span class = 'userdanger'>You wonder why the fuck did you decide to take [src.name].</span>","<span class = 'userdanger'>It hurts so bad!</span>","<span class = 'userdanger'>Please, end it now!</span>","<span class = 'userdanger'>Dear god please no it hurts!</span>")
@@ -385,25 +385,25 @@
 /datum/reagent/drug/hotline/addiction_act_stage1(var/mob/living/M as mob)
 	M.adjustBrainLoss(rand(1,10))
 	M.hallucination += 10
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	..()
 	return
 /datum/reagent/drug/hotline/addiction_act_stage2(var/mob/living/M as mob)
 	M.adjustBrainLoss(rand(1,20))
 	M.hallucination += 20
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	..()
 	return
 /datum/reagent/drug/hotline/addiction_act_stage3(var/mob/living/M as mob)
 	M.adjustBrainLoss(rand(1,30))
 	M.hallucination += 30
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	..()
 	return
 /datum/reagent/drug/hotline/addiction_act_stage4(var/mob/living/M as mob)
 	M.adjustBrainLoss(rand(1,30))
 	M.hallucination += 30
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	if(prob(1))
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M

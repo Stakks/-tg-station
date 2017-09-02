@@ -24,12 +24,12 @@
 /datum/reagent/consumable/ethanol/on_mob_life(var/mob/living/M as mob)
 	M.jitteriness = max(M.jitteriness-5,0)
 	if(current_cycle >= boozepwr)
-		if (!M.slurring) M.slurring = 1
-		M.slurring += 4
+		if (!M.health_status.verbal_slur) M.health_status.verbal_slur = 1
+		M.health_status.verbal_slur += 4
 		M.Dizzy(5)
 	if(current_cycle >= boozepwr*2.5 && prob(33))
-		if (!M.confused) M.confused = 1
-		M.confused += 3
+		if (!M.health_status.spatial_confuse) M.health_status.spatial_confuse = 1
+		M.health_status.spatial_confuse += 3
 	if(current_cycle >= boozepwr*10 && prob(33))
 		M.adjustToxLoss(2)
 //		if(prob(20) && !(/datum/disease/cirrhosis/ in M.viruses))
@@ -152,7 +152,7 @@
 	boozepwr = 15
 
 /datum/reagent/consumable/ethanol/threemileisland/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 50)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 50)
 	..()
 	return
 
@@ -400,7 +400,7 @@
 	boozepwr = 15
 
 /datum/reagent/consumable/ethanol/manhattan_proj/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	..()
 	return
 

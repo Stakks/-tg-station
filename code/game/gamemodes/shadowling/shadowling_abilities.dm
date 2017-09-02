@@ -375,7 +375,7 @@
 	if(!M) M = holder.my_atom
 	if(!is_shadow_or_thrall(M))
 		M << "<span class='warning'><b>You breathe in the black smoke, and your eyes burn horribly!</b></span>"
-		M.eye_blind = 5
+		M.health_status.vision_blindness = 5
 		if(prob(25))
 			M.visible_message("<b>[M]</b> screams and claws at their eyes!")
 			M.Stun(2)
@@ -412,8 +412,8 @@
 			if(iscarbon(target))
 				var/mob/living/carbon/M = target
 				M << "<span class='danger'><b>A spike of pain drives into your head and scrambles your thoughts!</b></span>"
-				M.confused += 10
-				M.setEarDamage(M.ear_damage + 3)
+				M.health_status.spatial_confuse += 10
+				M.setEarDamage(M.health_status.aural_audio_intensity + 3)
 			else if(issilicon(target))
 				var/mob/living/silicon/S = target
 				S << "<span class='warning'><b>ERROR $!(@ ERROR )#^! SENSOR INTERFERENCE DETECTED</b></span>"

@@ -220,7 +220,7 @@
 							M.animate_movement = 2
 							return
 
-		if(mob.confused && IsEven(world.time))
+		if(mob.health_status.spatial_confuse && IsEven(world.time))
 			step(mob, pick(cardinal))
 		else
 			. = ..()

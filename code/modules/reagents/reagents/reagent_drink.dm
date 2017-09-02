@@ -47,8 +47,8 @@
 	color = "#973800" // rgb: 151, 56, 0
 
 /datum/reagent/consumable/carrotjuice/on_mob_life(var/mob/living/M as mob)
-	M.eye_blurry = max(M.eye_blurry-1 , 0)
-	M.eye_blind = max(M.eye_blind-1 , 0)
+	M.health_status.vision_blurry = max(M.health_status.vision_blurry-1 , 0)
+	M.health_status.vision_blindness = max(M.health_status.vision_blindness-1 , 0)
 	switch(current_cycle)
 		if(1 to 20)
 			//nothing
@@ -256,7 +256,7 @@
 
 /datum/reagent/consumable/nuka_cola/on_mob_life(var/mob/living/M as mob)
 	M.Jitter(20)
-	M.druggy = max(M.druggy, 30)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 30)
 	M.dizziness +=5
 	M.drowsyness = 0
 	M.sleeping = max(0,M.sleeping-2)
@@ -423,8 +423,8 @@
 		M.adjustToxLoss(-2)
 	if(M.dizziness !=0)
 		M.dizziness = max(0,M.dizziness-15)
-	if(M.confused !=0)
-		M.confused = max(0,M.confused - 5)
+	if(M.health_status.spatial_confuse !=0)
+		M.health_status.spatial_confuse = max(0,M.health_status.spatial_confuse - 5)
 	..()
 /datum/reagent/consumable/doctor_delight/overdose_process(var/mob/living/M as mob)
 	M.adjustToxLoss(3*REM)
@@ -505,12 +505,12 @@
 	color = "#666300" // rgb: 102, 99, 0
 
 /datum/reagent/consumable/atomicbomb/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 50)
-	M.confused = max(M.confused+2,0)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 50)
+	M.health_status.spatial_confuse = max(M.health_status.spatial_confuse+2,0)
 	M.Dizzy(10)
-	if (!M.slurring)
-		M.slurring = 1
-	M.slurring += 3
+	if (!M.health_status.verbal_slur)
+		M.health_status.verbal_slur = 1
+	M.health_status.verbal_slur += 3
 	switch(current_cycle)
 		if(51 to 200)
 			M.sleeping += 1
@@ -530,14 +530,14 @@
 	M.dizziness +=6
 	switch(current_cycle)
 		if(15 to 45)
-			if(!M.slurring)
-				M.slurring = 1
-			M.slurring += 3
+			if(!M.health_status.verbal_slur)
+				M.health_status.verbal_slur = 1
+			M.health_status.verbal_slur += 3
 		if(45 to 55)
 			if(prob(50))
-				M.confused = max(M.confused+3,0)
+				M.health_status.spatial_confuse = max(M.health_status.spatial_confuse+3,0)
 		if(55 to 200)
-			M.druggy = max(M.druggy, 55)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 55)
 		if(200 to INFINITY)
 			M.adjustToxLoss(2)
 	..()
@@ -554,14 +554,14 @@
 	M.dizziness +=6
 	switch(current_cycle)
 		if(15 to 45)
-			if(!M.slurring)
-				M.slurring = 1
-			M.slurring += 3
+			if(!M.health_status.verbal_slur)
+				M.health_status.verbal_slur = 1
+			M.health_status.verbal_slur += 3
 		if(45 to 55)
 			if(prob(50))
-				M.confused = max(M.confused+3,0)
+				M.health_status.spatial_confuse = max(M.health_status.spatial_confuse+3,0)
 		if(55 to 200)
-			M.druggy = max(M.druggy, 55)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 55)
 		if(200 to INFINITY)
 			M.adjustToxLoss(2)
 	..()
@@ -576,29 +576,29 @@
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
 
 /datum/reagent/consumable/hippies_delight/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 50)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 50)
 	switch(current_cycle)
 		if(1 to 5)
-			if (!M.slurring) M.slurring = 1
+			if (!M.health_status.verbal_slur) M.health_status.verbal_slur = 1
 			M.Dizzy(10)
 			if(prob(10)) M.emote(pick("twitch","giggle"))
 		if(5 to 10)
-			if (!M.slurring) M.slurring = 1
+			if (!M.health_status.verbal_slur) M.health_status.verbal_slur = 1
 			M.Jitter(20)
 			M.Dizzy(20)
-			M.druggy = max(M.druggy, 45)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 45)
 			if(prob(20)) M.emote(pick("twitch","giggle"))
 		if (10 to 200)
-			if (!M.slurring) M.slurring = 1
+			if (!M.health_status.verbal_slur) M.health_status.verbal_slur = 1
 			M.Jitter(40)
 			M.Dizzy(40)
-			M.druggy = max(M.druggy, 60)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 60)
 			if(prob(30)) M.emote(pick("twitch","giggle"))
 		if(200 to INFINITY)
-			if (!M.slurring) M.slurring = 1
+			if (!M.health_status.verbal_slur) M.health_status.verbal_slur = 1
 			M.Jitter(60)
 			M.Dizzy(60)
-			M.druggy = max(M.druggy, 75)
+			M.health_status.vision_druggy = max(M.health_status.vision_druggy, 75)
 			if(prob(40)) M.emote(pick("twitch","giggle"))
 			if(prob(30)) M.adjustToxLoss(2)
 	..()
@@ -611,7 +611,7 @@
 	color = "#FF99FF" // rgb: 255, 153, 255
 
 /datum/reagent/consumable/purple_drank/on_mob_life(var/mob/living/M as mob)
-	M.druggy = max(M.druggy, 15)
+	M.health_status.vision_druggy = max(M.health_status.vision_druggy, 15)
 	if (prob(3))
 		switch(pick(1,2,3))
 			if(1)
@@ -624,7 +624,7 @@
 		if(1 to 12)
 			if(prob(5))	M.emote("yawn")
 		if(12 to 15)
-			M.eye_blurry = max(M.eye_blurry, 10)
+			M.health_status.vision_blurry = max(M.health_status.vision_blurry, 10)
 		if(15 to INFINITY)
 			M.drowsyness  = max(M.drowsyness, 20)
 	..()

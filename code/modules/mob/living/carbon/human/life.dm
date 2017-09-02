@@ -77,12 +77,12 @@
 	//Eyes
 	if(!(disabilities & BLIND))
 		if(tinttotal >= TINT_BLIND)		//covering your eyes heals blurry eyes faster
-			eye_blurry = max(eye_blurry-2, 0)
+			health_status.vision_blurry = max(health_status.vision_blurry-2, 0)
 
 	//Ears
 	if(!(disabilities & DEAF))
 		if(istype(ears, /obj/item/clothing/ears/earmuffs)) // earmuffs rest your ears, healing ear_deaf faster and ear_damage, but keeping you deaf.
-			setEarDamage(max(ear_damage-0.10, 0), max(ear_deaf - 1, 1))
+			setEarDamage(max(health_status.aural_audio_intensity-0.10, 0), max(health_status.aural_audio - 1, 1))
 
 
 	if (getBrainLoss() >= 60 && stat != DEAD)
@@ -314,8 +314,8 @@
 	// Puke if toxloss is too high
 	if(!stat)
 		if (getToxLoss() >= 45 && nutrition > 20)
-			lastpuke ++
-			if(lastpuke >= 25) // about 25 second delay I guess
+			health_status.nausea_vomit ++
+			if(health_status.nausea_vomit >= 25) // about 25 second delay I guess
 				Stun(5)
 
 				visible_message("<span class='danger'>[src] throws up!</span>", \
@@ -330,7 +330,7 @@
 				adjustToxLoss(-3)
 
 				// make it so you can only puke so fast
-				lastpuke = 0
+				health_status.nausea_vomit = 0
 
 
 /mob/living/carbon/human/handle_changeling()

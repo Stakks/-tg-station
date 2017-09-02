@@ -267,7 +267,7 @@ proc/slur(n)
 		p++//for each letter p is increased to find where the next letter will be.
 	return copytext(sanitize(t),1,MAX_MESSAGE_LEN)
 
-/proc/derpspeech(message, stuttering)
+/proc/derpspeech(message, stutter)
 	message = replacetext(message, " am ", " ")
 	message = replacetext(message, " is ", " ")
 	message = replacetext(message, " are ", " ")
@@ -280,7 +280,7 @@ proc/slur(n)
 	if(prob(50))
 		message = uppertext(message)
 		message += "[stutter(pick("!", "!!", "!!!"))]"
-	if(!stuttering && prob(15))
+	if(!stutter && prob(15))
 		message = stutter(message)
 	return message
 
@@ -415,7 +415,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 proc/is_blind(A)
 	if(ismob(A))
 		var/mob/B = A
-		return	B.eye_blind
+		return	B.health_status.vision_blindness
 	return 0
 
 proc/is_special_character(mob/M) // returns 1 for special characters and 2 for heroes of gamemode //moved out of admins.dm because things other than admin procs were calling this.

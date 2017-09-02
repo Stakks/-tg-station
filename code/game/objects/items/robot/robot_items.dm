@@ -14,8 +14,8 @@
 	user.cell.charge -= 30
 
 	M.Weaken(5)
-	if (M.stuttering < 5)
-		M.stuttering = 5
+	if (M.health_status.verbal_stutter < 5)
+		M.health_status.verbal_stutter = 5
 	M.Stun(5)
 
 	for(var/mob/O in viewers(M, null))

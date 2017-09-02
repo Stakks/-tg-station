@@ -13,7 +13,7 @@
 		if(prob(weakness * 100))
 			C << "<span class='userdanger'>A powerful force overwhelms your consciousness.</span>"
 			C.weakened += 45 * weakness
-			C.stuttering += 45 * weakness
+			C.health_status.verbal_stutter += 45 * weakness
 			C.stunned += rand(1,10) * weakness
 
 /datum/artifact_effect/stun/DoEffectAura()
@@ -23,7 +23,7 @@
 			if(prob(10 * weakness))
 				C << "<span class='warning'>Your body goes numb for a moment.</span>"
 				C.weakened += 2
-				C.stuttering += 2
+				C.health_status.verbal_stutter += 2
 				if(prob(10))
 					C.stunned += 1
 			else if(prob(10))
@@ -36,6 +36,6 @@
 			if(prob(100 * weakness))
 				C << "<span class='warning'>A wave of energy overwhelms your senses!</span>"
 				C.weakened += 4 * weakness
-				C.stuttering += 4 * weakness
+				C.health_status.verbal_stutter += 4 * weakness
 				if(prob(10))
 					C.stunned += 1 * weakness

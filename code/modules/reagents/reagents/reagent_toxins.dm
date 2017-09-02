@@ -286,7 +286,7 @@
 
 /datum/reagent/toxin/spore/on_mob_life(var/mob/living/M as mob)
 	M.damageoverlaytemp = 60
-	M.eye_blurry = max(M.eye_blurry, 3)
+	M.health_status.vision_blurry = max(M.health_status.vision_blurry, 3)
 	..()
 	return
 
@@ -316,7 +316,7 @@
 /datum/reagent/toxin/chloralhydrate/on_mob_life(var/mob/living/M as mob)
 	switch(current_cycle)
 		if(1 to 5)
-			M.confused += 2
+			M.health_status.spatial_confuse += 2
 			M.drowsyness += 2
 		if(5 to 25)
 			M.sleeping += 1
@@ -416,7 +416,7 @@
 		switch(pick(1, 2, 3, 4))
 			if(1)
 				M << "<span class='danger'>You can barely see!</span>"
-				M.eye_blurry = 3
+				M.health_status.vision_blurry = 3
 			if(2)
 				M.emote("cough")
 			if(3)
@@ -777,7 +777,7 @@
 		if(1 to 12)
 			if(prob(5))	M.emote("yawn")
 		if(12 to 15)
-			M.eye_blurry = max(M.eye_blurry, 10)
+			M.health_status.vision_blurry = max(M.health_status.vision_blurry, 10)
 		if(15 to 25)
 			M.drowsyness  = max(M.drowsyness, 20)
 		if(25 to INFINITY) //CAN'T WAKE UP

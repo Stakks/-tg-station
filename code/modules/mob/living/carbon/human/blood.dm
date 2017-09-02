@@ -96,7 +96,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					oxyloss += 10
 				oxyloss += 1
 				if(prob(5))
-					eye_blurry += 6
+					health_status.vision_blurry += 6
 					var/word = pick("dizzy","woozy","faint")
 					src << "<span class='warning'>You feel very [word].</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
