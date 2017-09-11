@@ -276,6 +276,7 @@
 	M.disabilities = 0
 	M.health_status.vision_blurry = 0
 	M.health_status.vision_blindness = 0
+	M.health_status.vision_blindness_intensity = 0
 	M.SetWeakened(0)
 	M.SetStunned(0)
 	M.SetParalysis(0)
@@ -311,7 +312,7 @@
 			if(1   to 32)	H.mutatepest()
 			else 			user << "Nothing happens..."
 	return
-	
+
 /datum/reagent/medicine/adminordrazine/nanites
 	name = "Nanites"
 	id = "nanites"
@@ -442,7 +443,7 @@
 		M.adjustToxLoss(-3)
 	..()
 	return
-	
+
 /datum/reagent/medicine/cryoxadone/reaction_hydroponics_tray(var/obj/machinery/hydroponics/H, var/reac_volume, var/mob/user)
 	if(reac_volume >= 1)
 		H.adjustHealth(round(reac_volume) * 3)
@@ -891,8 +892,10 @@
 	if(M.health_status.vision_blindness > 0 && current_cycle > 20)
 		if(prob(30))
 			M.health_status.vision_blindness = 0
+			M.health_status.vision_blindness_intensity = 0
 		else if(prob(80))
 			M.health_status.vision_blindness = 0
+			M.health_status.vision_blindness_intensity = 0
 			M.health_status.vision_blurry = 1
 		if(M.health_status.vision_blurry > 0)
 			if(prob(80))

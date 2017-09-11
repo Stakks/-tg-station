@@ -154,7 +154,8 @@ Bonus
 					if (prob(M.health_status.vision_damage - 10 + 1) && !(M.health_status.vision_blindness))
 						M << "<span class='danger'>You go blind!</span>"
 						M.disabilities |= BLIND
-						M.health_status.vision_blindness = 1
+						M.health_status.vision_blindness = 100
+						M.health_status.vision_blindness_intensity = 11
 	return
 
 

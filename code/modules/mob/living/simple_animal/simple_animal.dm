@@ -117,6 +117,7 @@
 	else
 		if(health_status.vision_blindness)
 			health_status.vision_blindness = 0
+			health_status.vision_blindness_intensity = 0
 		if(health_status.vision_blurry)
 			health_status.vision_blurry = 0
 		if(health_status.vision_damage)

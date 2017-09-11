@@ -676,6 +676,7 @@
 	..()
 	user <<"<span class='warning'>You go blind!</span>"
 	user.health_status.vision_blindness = 10
+	user.health_status.vision_blindness_intensity = 11
 
 /obj/item/weapon/spellbook/oneuse/mindswap
 	spell = /obj/effect/proc_holder/spell/targeted/mind_transfer
