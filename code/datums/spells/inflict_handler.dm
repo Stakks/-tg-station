@@ -62,6 +62,7 @@
 		target.Stun(amt_stunned)
 
 		target.health_status.vision_blindness += amt_eye_blind
+		target.health_status.vision_blindness_intensity = 11
 		target.health_status.vision_blurry += amt_eye_blurry
 		//summoning
 		if(summon_type)

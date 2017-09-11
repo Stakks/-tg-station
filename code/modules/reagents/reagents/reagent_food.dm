@@ -263,6 +263,7 @@
 				victim.emote("scream")
 			victim.health_status.vision_blurry = max(M.health_status.vision_blurry, 5)
 			victim.health_status.vision_blindness = max(M.health_status.vision_blindness, 2)
+			victim.health_status.vision_blindness_intensity = pick(9,10,11,12,13,14)
 			victim.health_status.spatial_confuse = max(M.health_status.spatial_confuse, 6)
 			victim.damageoverlaytemp = 75
 			victim.Weaken(5)

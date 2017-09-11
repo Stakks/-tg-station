@@ -442,6 +442,7 @@ Sorry Giacom. Please don't be mad :(
 	bodytemperature = 310
 	disabilities = 0
 	health_status.vision_blindness = 0
+	health_status.vision_blindness_intensity = 0
 	health_status.vision_blurry = 0
 	health_status.aural_audio = 0
 	health_status.aural_audio_intensity = 0

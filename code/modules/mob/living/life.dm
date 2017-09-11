@@ -126,11 +126,15 @@
 	//Eyes
 	if(disabilities & BLIND || stat)	//blindness from disability or unconsciousness doesn't get better on its own
 		health_status.vision_blindness = max(health_status.vision_blindness, 1)
+		health_status.vision_blindness_intensity = 11
 	else if(health_status.vision_blindness)			//blindness, heals slowly over time
 		health_status.vision_blindness = max(health_status.vision_blindness-1,0)
 	else if(health_status.vision_blurry)			//blurry eyes heal slowly
 		health_status.vision_blurry = max(health_status.vision_blurry-1, 0)
 
+	if(!BLIND)
+		health_status.vision_blindness_intensity = 0
+		
 	//Ears
 	if(disabilities & DEAF)		//disabled-deaf, doesn't get better on its own
 		setEarDamage(-1, max(health_status.aural_audio, 1))
