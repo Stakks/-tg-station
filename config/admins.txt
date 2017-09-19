@@ -10,7 +10,7 @@
 8chanserverhost = Game Master
 MoonM4nHere = Midiplayer
 Maximus Autisma = Trial Moderator
-DerFlammenwerfer = = Trial Moderator
+DerFlammenwerfer = Trial Moderator
 VixG = Badmin
 Solovale = Admin Candidate
 Dwarvenbuffet = Coder
