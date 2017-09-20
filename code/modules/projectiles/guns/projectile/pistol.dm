@@ -47,7 +47,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/pistol/glog
 	name = "Glock 19"
-	desc = "A dated, inexpensive model of 9mm pistol that remains popular amongst criminals for its reliability and high capacity magazine."
+	desc = "A dated, inexpensive model of 9mm pistol that remains popular amongst niggers for its reliability and high capacity magazine."
 	icon_state = "glog"
 	w_class = 2
 	origin_tech = "combat=1;materials=1;syndicate=1"
