@@ -44,3 +44,20 @@
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
 	item_state = "deagleg"
+
+/obj/item/weapon/gun/projectile/automatic/pistol/glog
+	name = "Glock 19"
+	desc = "A dated, inexpensive model of 9mm pistol that remains popular amongst criminals for its reliability and high capacity magazine."
+	icon_state = "glog"
+	w_class = 2
+	origin_tech = "combat=1;materials=1;syndicate=1"
+	mag_type = /obj/item/ammo_box/magazine/m9mm
+	can_suppress = 0
+	burst_size = 1
+	fire_delay = 0
+	action_button_name = null
+
+/obj/item/weapon/gun/projectile/automatic/pistol/glog/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
+	return

@@ -149,6 +149,18 @@
 	..()
 	icon_state = "smg9mm-[round(ammo_count(),5)]"
 
+/obj/item/ammo_box/magazine/m9mm
+	name = "9mm pistol magazine"
+	desc = "A 15-round magazine designed for the once-popular Glock 19"
+	icon_state = "m9mm-15"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 15
+
+/obj/item/ammo_box/magazine/m9mm/update_icon()
+	..()
+	icon_state = "m9mm-[ammo_count() ? "15" : "0"]"
+
 /obj/item/ammo_box/magazine/smgm45
 	name = "SMG magazine (.45)"
 	icon_state = "c20r45-20"
