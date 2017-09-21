@@ -161,6 +161,18 @@
 	..()
 	icon_state = "m9mm-[ammo_count() ? "15" : "0"]"
 
+/obj/item/ammo_box/magazine/m9mmrus
+	name = "Makarov magazine"
+	desc = "An 8-round magazine designed for the mass-produced Makarov pistol. Definitely not filled with macaroni."
+	icon_state = "m9mmrus-8"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 8
+
+/obj/item/ammo_box/magazine/m9mm/update_icon()
+	..()
+	icon_state = "m9mmrus-[ammo_count() ? "8" : "0"]"
+
 /obj/item/ammo_box/magazine/smgm45
 	name = "SMG magazine (.45)"
 	icon_state = "c20r45-20"
@@ -329,3 +341,15 @@
 /obj/item/ammo_box/magazine/uzim9mm/update_icon()
 	..()
 	icon_state = "uzi9mm-[round(ammo_count(),4)]"
+
+/obj/item/ammo_box/magazine/mp5m9mm
+	name = "9mm box magazine"
+	desc = "A 40-round magazine designed for the classic H&K Mp5"
+	icon_state = "mp5m9mm-40"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 40
+
+/obj/item/ammo_box/magazine/mp5m9mm/update_icon()
+	..()
+	icon_state = "mp5m9mm-[ammo_count() ? "40" : "0"]"

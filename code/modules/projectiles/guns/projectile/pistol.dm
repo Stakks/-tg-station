@@ -3,7 +3,7 @@
 	desc = "A small, easily concealable 10mm handgun. Has a threaded barrel for suppressors."
 	icon_state = "pistol"
 	w_class = 2
-	origin_tech = "combat=2;materials=2;syndicate=2"
+	origin_tech = "combat=3;materials=3;syndicate=3"
 	mag_type = /obj/item/ammo_box/magazine/m10mm
 	can_suppress = 1
 	burst_size = 1
@@ -47,7 +47,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/pistol/glog
 	name = "Glock 19"
-	desc = "A dated, inexpensive model of 9mm pistol that remains popular amongst niggers for its reliability and high capacity magazine."
+	desc = "A dated, inexpensive model of 9mm pistol that remains popular amongst criminals for its reliability and high capacity magazine."
 	icon_state = "glog"
 	w_class = 2
 	origin_tech = "combat=1;materials=1;syndicate=1"
@@ -58,6 +58,23 @@
 	action_button_name = null
 
 /obj/item/weapon/gun/projectile/automatic/pistol/glog/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
+	return
+
+/obj/item/weapon/gun/projectile/automatic/pistol/macaroni
+	name = "Makarov Pistol"
+	desc = "A cheaply made Russian sidearm originally designed to replace the powerful but sometimes unreliable Tokarev as the standard issue for USSR conscripts."
+	icon_state = "macaroni"
+	w_class = 2
+	origin_tech = "combat=2;materials=2;syndicate=2
+	mag_type = /obj/item/ammo_box/magazine/m9mmrus
+	can_suppress = 0
+	burst_size = 1
+	fire_delay = 0
+	action_button_name = null
+
+/obj/item/weapon/gun/projectile/automatic/pistol/macaroni/update_icon()
 	..()
 	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
 	return
