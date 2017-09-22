@@ -306,4 +306,13 @@
 	origin_tech = "combat=7;materials=7;syndicate=7"
 	mag_type = /obj/item/ammo_box/magazine/skpm9mm
 	burst_size = 3
-	fire_delay = 1
+	fire_delay = 0
+
+obj/item/weapon/gun/projectile/automatic/greaser
+	name = "M3 Submachinegun"
+	desc = "An American-made submachinegun chambered in .45 ACP and designed to be a cheaper alternative to the M1928A1 Thompson"
+	icon_state = "ggm45"
+	origin_tech = "combat=3;materials=3;syndicate=3"
+	mag_type = /obj/item/ammo_box/magazine/ggm45
+	burst_size = 3
+	fire_delay = 0
