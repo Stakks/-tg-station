@@ -386,6 +386,18 @@
 	caliber = "9mm"
 	max_ammo = 32
 
-/obj/item/ammo_box/magazine/ggm45/update_icon()
+/obj/item/ammo_box/magazine/mp40/update_icon()
 	..()
 	icon_state = "mp40-[ammo_count() ? "32" : "0"]"
+
+/obj/item/ammo_box/magazine/skorpion
+	name = ".45 box magazine"
+	desc = "A 20-round magazine designed for the Skorpion vz. 61"
+	icon_state = "skorpion-20"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 20
+
+/obj/item/ammo_box/magazine/skorpion/update_icon()
+	..()
+	icon_state = "skorpion-[ammo_count() ? "20" : "0"]"

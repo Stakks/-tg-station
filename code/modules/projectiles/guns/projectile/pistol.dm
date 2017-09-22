@@ -94,3 +94,19 @@ obj/item/weapon/gun/projectile/automatic/mp40
 	..()
 	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
 	return
+
+obj/item/weapon/gun/projectile/automatic/skorpion
+	name = "Skorpion vz. 61"
+	desc = "A Czechoslovakian sidearm that has remained somewhat popular amongst DIRTY COMMIES. Most are chambered in .32 ACP, but this one is modified to use 9x18mm rounds instead."
+	icon_state = "skorpion"
+	w_class = 3
+	origin_tech = "combat=3;materials=3;syndicate=3"
+	mag_type = /obj/item/ammo_box/magazine/skorpion
+	burst_size = 2
+	fire_delay = 0
+	action_button_name = null
+
+/obj/item/weapon/gun/projectile/automatic/pistol/skorpion/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
+	return
