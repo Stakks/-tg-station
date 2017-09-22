@@ -344,7 +344,7 @@
 
 /obj/item/ammo_box/magazine/mp5m9mm
 	name = "9mm box magazine"
-	desc = "A 40-round magazine designed for the classic H&K Mp5"
+	desc = "A 40-round magazine designed for the classic H&K Mp5."
 	icon_state = "mp5m9mm-40"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = "9mm"
@@ -353,3 +353,16 @@
 /obj/item/ammo_box/magazine/mp5m9mm/update_icon()
 	..()
 	icon_state = "mp5m9mm-[ammo_count() ? "40" : "0"]"
+
+/obj/item/ammo_box/magazine/skpm9mm
+	name = "9mm drum magazine"
+	desc = "A 71-round magazine designed for the Finnish Suomi KP/-31 submachinegun."
+	icon_state = "skpm9mm-71"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 71
+
+/obj/item/ammo_box/magazine/skpm9mm/update_icon()
+	..()
+	icon_state = "skpm9mm-[ammo_count() ? "71" : "0"]"
+

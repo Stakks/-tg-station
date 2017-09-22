@@ -278,6 +278,14 @@
 	mag_type = /obj/item/ammo_box/magazine/uzim9mm
 	burst_size = 2
 
+/obj/item/weapon/gun/projectile/automatic/mp5
+	name = "H&K Mp5"
+	desc = "A classic submachinegun designed but Heckler & Koch. Uses 9mm rounds."
+	icon_state = "mp5"
+	origin_tech = "combat=5;materials=5;syndicate=5"
+	mag_type = /obj/item/ammo_box/magazine/mp5m9mm
+	burst_size = 2
+
 /obj/item/weapon/gun/projectile/automatic/ar
 	name = "ARG"
 	desc = "A robust assault rile used by Nanotrasen fighting forces."
@@ -288,5 +296,14 @@
 	mag_type = /obj/item/ammo_box/magazine/m556
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	can_suppress = 0
+	burst_size = 3
+	fire_delay = 1
+
+/obj/item/weapon/gun/projectile/automatic/skp31
+	name = "Suoli KP/-31"
+	desc = "One of the most successful SMGs of WWII, this Finnish lead-spitter features a 71-round drum magazine and is chambered in 9x18mm Parabellum."
+	icon_state = "skp31"
+	origin_tech = "combat=7;materials=7;syndicate=7"
+	mag_type = /obj/item/ammo_box/magazine/skpm9mm
 	burst_size = 3
 	fire_delay = 1
