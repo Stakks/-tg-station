@@ -285,6 +285,7 @@
 	origin_tech = "combat=5;materials=5;syndicate=5"
 	mag_type = /obj/item/ammo_box/magazine/mp5m9mm
 	burst_size = 2
+	action_button_name = null
 
 /obj/item/weapon/gun/projectile/automatic/ar
 	name = "ARG"
@@ -307,6 +308,7 @@
 	mag_type = /obj/item/ammo_box/magazine/skpm9mm
 	burst_size = 3
 	fire_delay = 0
+	action_button_name = null
 
 obj/item/weapon/gun/projectile/automatic/greaser
 	name = "M3 Submachinegun"
@@ -316,3 +318,4 @@ obj/item/weapon/gun/projectile/automatic/greaser
 	mag_type = /obj/item/ammo_box/magazine/ggm45
 	burst_size = 3
 	fire_delay = 0
+	action_button_name = null

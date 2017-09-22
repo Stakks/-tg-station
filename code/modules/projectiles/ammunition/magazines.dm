@@ -370,10 +370,22 @@
 	name = ".45 box magazine"
 	desc = "A 30-round magazine designed for the M3 'Greaser' submachinegun."
 	icon_state = "ggm45-30"
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/c45
 	caliber = ".45"
 	max_ammo = 30
 
 /obj/item/ammo_box/magazine/ggm45/update_icon()
 	..()
 	icon_state = "ggm45-[ammo_count() ? "30" : "0"]"
+
+/obj/item/ammo_box/magazine/mp40
+	name = ".45 box magazine"
+	desc = "A 32-round magazine designed for the Mp 40"
+	icon_state = "mp40-32"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 32
+
+/obj/item/ammo_box/magazine/ggm45/update_icon()
+	..()
+	icon_state = "mp40-[ammo_count() ? "32" : "0"]"

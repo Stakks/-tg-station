@@ -78,3 +78,19 @@
 	..()
 	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
 	return
+
+obj/item/weapon/gun/projectile/automatic/mp40
+	name = "Mp 40 Submachinegun"
+	desc = "A cheaply-made and mass-produced German submachinegun chambered in 9x19mm Parabellum"
+	icon_state = "mp40"
+	w_class = 3
+	origin_tech = "combat=3;materials=3;syndicate=3"
+	mag_type = /obj/item/ammo_box/magazine/mp40
+	burst_size = 3
+	fire_delay = 0
+	action_button_name = null
+
+/obj/item/weapon/gun/projectile/automatic/pistol/mp40/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][magazine ? "-[magazine.max_ammo]" : ""][chambered ? "" : "-e"]"
+	return
