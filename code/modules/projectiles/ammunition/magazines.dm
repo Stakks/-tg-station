@@ -149,6 +149,30 @@
 	..()
 	icon_state = "smg9mm-[round(ammo_count(),5)]"
 
+/obj/item/ammo_box/magazine/m9mm
+	name = "9mm pistol magazine"
+	desc = "A 15-round magazine designed for the once-popular Glock 19"
+	icon_state = "m9mm-15"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 15
+
+/obj/item/ammo_box/magazine/m9mm/update_icon()
+	..()
+	icon_state = "m9mm-[ammo_count() ? "15" : "0"]"
+
+/obj/item/ammo_box/magazine/m9mmrus
+	name = "Makarov magazine"
+	desc = "An 8-round magazine designed for the mass-produced Makarov pistol. Definitely not filled with macaroni."
+	icon_state = "m9mmrus-8"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 8
+
+/obj/item/ammo_box/magazine/m9mm/update_icon()
+	..()
+	icon_state = "m9mmrus-[ammo_count() ? "8" : "0"]"
+
 /obj/item/ammo_box/magazine/smgm45
 	name = "SMG magazine (.45)"
 	icon_state = "c20r45-20"
@@ -317,3 +341,63 @@
 /obj/item/ammo_box/magazine/uzim9mm/update_icon()
 	..()
 	icon_state = "uzi9mm-[round(ammo_count(),4)]"
+
+/obj/item/ammo_box/magazine/mp5m9mm
+	name = "9mm box magazine"
+	desc = "A 40-round magazine designed for the classic H&K Mp5."
+	icon_state = "mp5m9mm-40"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 40
+
+/obj/item/ammo_box/magazine/mp5m9mm/update_icon()
+	..()
+	icon_state = "mp5m9mm-[ammo_count() ? "40" : "0"]"
+
+/obj/item/ammo_box/magazine/skpm9mm
+	name = "9mm drum magazine"
+	desc = "A 71-round magazine designed for the Finnish Suomi KP/-31 submachinegun."
+	icon_state = "skpm9mm-71"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 71
+
+/obj/item/ammo_box/magazine/skpm9mm/update_icon()
+	..()
+	icon_state = "skpm9mm-[ammo_count() ? "71" : "0"]"
+
+/obj/item/ammo_box/magazine/ggm45
+	name = ".45 box magazine"
+	desc = "A 30-round magazine designed for the M3 'Greaser' submachinegun."
+	icon_state = "ggm45-30"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = ".45"
+	max_ammo = 30
+
+/obj/item/ammo_box/magazine/ggm45/update_icon()
+	..()
+	icon_state = "ggm45-[ammo_count() ? "30" : "0"]"
+
+/obj/item/ammo_box/magazine/mp40
+	name = ".45 box magazine"
+	desc = "A 32-round magazine designed for the Mp 40"
+	icon_state = "mp40-32"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 32
+
+/obj/item/ammo_box/magazine/mp40/update_icon()
+	..()
+	icon_state = "mp40-[ammo_count() ? "32" : "0"]"
+
+/obj/item/ammo_box/magazine/skorpion
+	name = ".45 box magazine"
+	desc = "A 20-round magazine designed for the Skorpion vz. 61"
+	icon_state = "skorpion-20"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 20
+
+/obj/item/ammo_box/magazine/skorpion/update_icon()
+	..()
+	icon_state = "skorpion-[ammo_count() ? "20" : "0"]"

@@ -278,15 +278,6 @@
 	mag_type = /obj/item/ammo_box/magazine/uzim9mm
 	burst_size = 2
 
-/obj/item/weapon/gun/projectile/automatic/mp5
-	name = "H&K Mp5"
-	desc = "A classic submachinegun designed but Heckler & Koch. Uses 9mm rounds."
-	icon_state = "mp5"
-	origin_tech = "combat=5;materials=5;syndicate=5"
-	mag_type = /obj/item/ammo_box/magazine/mp5m9mm
-	burst_size = 2
-	action_button_name = null
-
 /obj/item/weapon/gun/projectile/automatic/ar
 	name = "ARG"
 	desc = "A robust assault rile used by Nanotrasen fighting forces."
@@ -299,23 +290,3 @@
 	can_suppress = 0
 	burst_size = 3
 	fire_delay = 1
-
-/obj/item/weapon/gun/projectile/automatic/skp31
-	name = "Suoli KP/-31"
-	desc = "One of the most successful SMGs of WWII, this Finnish lead-spitter features a 71-round drum magazine and is chambered in 9x18mm Parabellum."
-	icon_state = "skp31"
-	origin_tech = "combat=7;materials=7;syndicate=7"
-	mag_type = /obj/item/ammo_box/magazine/skpm9mm
-	burst_size = 3
-	fire_delay = 0
-	action_button_name = null
-
-obj/item/weapon/gun/projectile/automatic/greaser
-	name = "M3 Submachinegun"
-	desc = "An American-made submachinegun chambered in .45 ACP and designed to be a cheaper alternative to the M1928A1 Thompson"
-	icon_state = "ggm45"
-	origin_tech = "combat=3;materials=3;syndicate=3"
-	mag_type = /obj/item/ammo_box/magazine/ggm45
-	burst_size = 3
-	fire_delay = 0
-	action_button_name = null
