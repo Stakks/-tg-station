@@ -2,8 +2,9 @@
 	name = "Wormholes"
 	typepath = /datum/round_event/wormholes
 	max_occurrences = 3
-	weight = 2
+	weight = 3
 	announcement = 1
+	min_pop = 5 //normal event
 
 
 /datum/round_event/wormholes

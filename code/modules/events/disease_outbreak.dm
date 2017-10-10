@@ -4,6 +4,7 @@
 	max_occurrences = 1
 	weight = 20
 	announcement = 1
+	min_pop = 10 // more fun with more people
 
 /datum/round_event/disease_outbreak
 	announceWhen	= 15

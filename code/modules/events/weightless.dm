@@ -2,6 +2,7 @@
 	name = "Gravity Systems Failure"
 	typepath = /datum/round_event/weightless
 	weight = 15
+	min_pop = 5 //normal event
 
 /datum/round_event/weightless
 	startWhen = 5

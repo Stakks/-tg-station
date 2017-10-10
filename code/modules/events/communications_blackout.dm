@@ -3,6 +3,7 @@
 	typepath = /datum/round_event/communications_blackout
 	weight = 30
 	announcement = 1
+	min_pop = 5 //normal event
 
 /datum/round_event/communications_blackout
 	announceWhen	= 1

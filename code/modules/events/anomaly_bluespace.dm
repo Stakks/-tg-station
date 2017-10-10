@@ -4,6 +4,7 @@
 	max_occurrences = 1
 	weight = 5
 	announcement = 1
+	min_pop = 5 //normal event
 
 /datum/round_event/anomaly/anomaly_bluespace
 	startWhen = 3
