@@ -4,7 +4,7 @@
 	weight = 5
 	max_occurrences = 1
 	announcement = 1
-	min_pop = 20 //round-ending event wich creates team antagonist
+	min_pop = 10 //round-ending event wich creates team antagonist
 
 /datum/round_event/alien_infestation
 	announceWhen	= 400
