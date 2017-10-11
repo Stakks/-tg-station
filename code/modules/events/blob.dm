@@ -4,7 +4,7 @@
 	weight = 5
 	max_occurrences = 1
 	announcement = 1
-	min_pop = 20 //round-ending event
+	min_pop = 10 //round-ending event
 	earliest_start = 48000 // 1 hour 20 minutes
 
 /datum/round_event/blob
