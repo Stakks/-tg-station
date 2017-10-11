@@ -3,6 +3,7 @@
 	typepath = /datum/round_event/prison_break
 	max_occurrences = 2
 	announcement = 1
+	min_pop = 20 //works only on mid-high pop
 
 /datum/round_event/prison_break
 	announceWhen = 50

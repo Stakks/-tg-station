@@ -3,6 +3,7 @@
 	typepath = /datum/round_event/radiation_storm
 	max_occurrences = 1
 	announcement = 1
+	min_pop = 5 //normal event
 
 /datum/round_event/radiation_storm
 	var/list/protected_areas = list(/area/maintenance, /area/turret_protected/ai_upload, /area/turret_protected/ai_upload_foyer, /area/turret_protected/ai)

@@ -5,6 +5,8 @@
 	weight = 40
 	alertadmins = 0
 	announcement = 1
+	min_pop = 5 //normal event
+	max_occurrences = 1 //annoying if repeats
 
 /datum/round_event/electrical_storm
 	var/lightsoutAmount	= 1

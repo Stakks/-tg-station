@@ -4,6 +4,7 @@
 	weight = 5
 	max_occurrences = 1
 	announcement = 1
+	min_pop = 15 //destructive event
 
 /datum/round_event/spider_infestation
 	announceWhen	= 400

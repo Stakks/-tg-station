@@ -67,7 +67,7 @@
 	desc = "A cheaply made Russian sidearm originally designed to replace the powerful but sometimes unreliable Tokarev as the standard issue for USSR conscripts."
 	icon_state = "macaroni"
 	w_class = 2
-	origin_tech = "combat=2;materials=2;syndicate=2
+	origin_tech = "combat=2;materials=2;syndicate=2"
 	mag_type = /obj/item/ammo_box/magazine/m9mmrus
 	can_suppress = 0
 	burst_size = 1
