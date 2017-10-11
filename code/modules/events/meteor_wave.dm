@@ -4,7 +4,7 @@
 	weight = 5
 	max_occurrences = 1
 	announcement = 1
-	min_pop = 20 //round-ending very destructive event
+	min_pop = 10 //round-ending very destructive event
 
 /datum/round_event/meteor_wave
 	startWhen		= 6
