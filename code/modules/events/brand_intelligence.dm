@@ -4,7 +4,7 @@
 	weight = 5
 	max_occurrences = 1
 	announcement = 1
-	min_pop = 15 //round-ending event
+	min_pop = 10 //round-ending event
 
 /datum/round_event/brand_intelligence
 	announceWhen	= 21
