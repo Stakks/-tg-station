@@ -676,7 +676,7 @@ proc/process_ghost_teleport_locs()
 	icon_state = "chapeloffice"
 
 /area/lawoffice
-	name = "Law Office"
+	name = "Nanotrasen Office"
 	icon_state = "law"
 
 /area/holodeck
