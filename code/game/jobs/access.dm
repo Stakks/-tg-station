@@ -345,7 +345,7 @@
 		if(access_library)
 			return "Library"
 		if(access_ntrep)
-			return "Law Office"
+			return "Nanotrasen Office"
 		if(access_robotics)
 			return "Robotics"
 		if(access_virology)
