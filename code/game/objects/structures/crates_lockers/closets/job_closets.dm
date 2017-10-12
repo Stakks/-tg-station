@@ -2,7 +2,6 @@
  * Contains:
  *		Bartender
  *		Janitor
- *		Nanotrasen Representative
  */
 
 /*
@@ -84,25 +83,3 @@
 	new /obj/item/clothing/shoes/galoshes(src)
 	new /obj/item/weapon/watertank/janitor(src)
 	new /obj/item/weapon/storage/belt/janitor(src)
-
-/*
- * Nanotrasen Representative
- */
-/obj/structure/closet/lawcloset
-	name = "legal closet"
-	desc = "It's a storage unit for courtroom apparel and items."
-	icon_door = "blue"
-
-
-/obj/structure/closet/lawcloset/New()
-	new /obj/item/clothing/under/ntrep/female(src)
-	new /obj/item/clothing/under/ntrep/black(src)
-	new /obj/item/clothing/under/ntrep/red(src)
-	new /obj/item/clothing/under/ntrep/bluesuit(src)
-	new /obj/item/clothing/suit/toggle/ntrep(src)
-	new /obj/item/clothing/under/ntrep/purpsuit(src)
-	new /obj/item/clothing/suit/toggle/ntrep/purple(src)
-	new /obj/item/clothing/under/ntrep/blacksuit(src)
-	new /obj/item/clothing/suit/toggle/ntrep/black(src)
-	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/clothing/shoes/laceup(src)
