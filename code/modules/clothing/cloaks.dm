@@ -40,9 +40,15 @@
 	icon_state = "rdcloak"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 
+/obj/item/clothing/cloak/cent
+	name = "nanotrasen representative's cloak"
+	desc = "Worn by Nanotrasen Representatives, supervisors of the space station. It makes you wonder if the cloak makes them better at their job."
+	icon_state = "centcloak"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 25, bio = 0, rad = 0)
+
 /obj/item/clothing/cloak/cap
 	name = "captain's cloak"
-	desc = "Worm by the commander of Space Station 13."
+	desc = "Worn by the commander of Space Station 13."
 	icon_state = "capcloak"
 	armor = list(melee = 10, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 10, rad = 10)
 
