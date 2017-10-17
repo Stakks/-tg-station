@@ -54,6 +54,12 @@ var/list/world_uplinks = list()
 			var/cost_text = ""
 			if(item.cost > 0)
 				cost_text = "([item.cost])"
+			//usr because I'm lazy and I don't want to pass arguments and cast
+			if(istype(item, /datum/uplink_item/job/))
+				var/datum/uplink_item/job/I = item
+				//make sure the the job specific items are only shown if the user has that job
+				if(I.job != usr.job && I.job != "")
+					continue
 			if(item.cost <= uses)
 				dat += "<A href='byond://?src=\ref[src];buy_item=[category]:[i];'>[item.name]</A> [cost_text] "
 			else
