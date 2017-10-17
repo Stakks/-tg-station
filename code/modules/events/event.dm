@@ -7,7 +7,7 @@
 								//Higher weights are more likely to be picked.
 								//10 is the default weight. 20 is twice more likely; 5 is half as likely as this default.
 
-	var/earliest_start = 12000	//The earliest world.time that an event can start (round-duration in deciseconds) default: 20 mins
+	var/earliest_start = 24000	//The earliest world.time that an event can start (round-duration in deciseconds) default: 20 mins
 
 	var/occurrences = 0			//How many times this event has occured
 	var/max_occurrences = 20		//The maximum number of times this event can occur (naturally), it can still be forced.
@@ -20,7 +20,7 @@
 	var/alertadmins = 1			//should we let the admins know this event is firing
 	var/announcement = 0		//If this event has an announcement, used for the false alarm event
 								//should be disabled on events that fire a lot
-	var/min_pop 		= 0		//Do not run events that would be bad on a server population below this number (0 to disable)
+	var/min_pop 		= 5		//Do not run events that would be bad on a server population below this number (0 to disable)
 	var/max_pop 		= 0		//Here for symmetry, but it could be used for events that make no sense about X players (0 to disable)
 
 
