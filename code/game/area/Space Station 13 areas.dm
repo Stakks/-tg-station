@@ -1665,8 +1665,6 @@ proc/process_ghost_teleport_locs()
 /area/microworlds
 	name = "space"
 	has_gravity = 1
-	luminosity = 1
-	lighting_use_dynamic = 0
 
 /area/microworlds/mircroworldmuseum
 	name = "Micro-World Museum"
