@@ -333,6 +333,10 @@ proc/process_ghost_teleport_locs()
 	name = "Thunderdome (Observer.)"
 	icon_state = "purple"
 
+/area/abandoneddock
+	name = "NT medical docking bay"
+	icon_state = "purple"
+
 //ENEMY
 
 /area/chrono_station
@@ -1661,6 +1665,8 @@ proc/process_ghost_teleport_locs()
 /area/microworlds
 	name = "space"
 	has_gravity = 1
+	luminosity = 1
+	lighting_use_dynamic = 0
 
 /area/microworlds/mircroworldmuseum
 	name = "Micro-World Museum"
