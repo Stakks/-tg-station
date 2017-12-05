@@ -442,6 +442,7 @@ Sorry Giacom. Please don't be mad :(
 	bodytemperature = 310
 	disabilities = 0
 	health_status.vision_blindness = 0
+	health_status.vision_blindness_intensity = 0
 	health_status.vision_blurry = 0
 	health_status.aural_audio = 0
 	health_status.aural_audio_intensity = 0
@@ -565,6 +566,11 @@ Sorry Giacom. Please don't be mad :(
 	if(update_slimes)
 		for(var/mob/living/carbon/slime/M in view(1,src))
 			M.UpdateFeed(src)
+
+	for(var/mob/M in oview(src))
+		M.update_vision_cone()
+
+	update_vision_cone()
 
 /mob/living/proc/makeTrail(var/turf/T, var/mob/living/M)
 	if(ishuman(M))

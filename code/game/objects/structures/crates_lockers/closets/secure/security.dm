@@ -49,7 +49,25 @@
 	new /obj/item/weapon/gun/energy/gun(src)
 	return
 
+/obj/structure/closet/secure_closet/ntrcloset
+	name = "nanotrasen closet"
+	req_access = list(access_ntrep)
+	icon_door = "secure"
 
+
+/obj/structure/closet/secure_closet/ntrcloset/New()
+    ..()
+    new /obj/item/weapon/clipboard(src)
+    new /obj/item/clothing/head/centhat(src)
+    new /obj/item/clothing/cloak/cent(src)
+    new /obj/item/clothing/under/rank/centcom_officer(src)
+    new /obj/item/clothing/under/rank/centcom_commander(src)
+    new /obj/item/clothing/shoes/combat(src)
+    new /obj/item/clothing/gloves/combat(src)
+    new /obj/item/clothing/glasses/hud/security/sunglasses(src)
+    new /obj/item/device/radio/headset/headset_cent(src)
+    new /obj/item/clothing/suit/armor/vest(src)
+    return
 
 /obj/structure/closet/secure_closet/hos
 	name = "\proper head of security's locker"

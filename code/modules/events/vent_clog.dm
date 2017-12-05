@@ -3,6 +3,7 @@
 	typepath = /datum/round_event/vent_clog
 	weight = 35
 	announcement = 1
+	min_pop = 5 //normal event
 
 /datum/round_event/vent_clog
 	announceWhen	= 5

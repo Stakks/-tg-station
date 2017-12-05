@@ -288,6 +288,15 @@
 	mymob.pullin.screen_loc = ui_pull_resist
 	hotkeybuttons += mymob.pullin
 
+	mymob.fov = new /obj/screen()//Vision_cone
+	mymob.fov.icon = 'icons/mob/hide.dmi'
+	mymob.fov.icon_state = "combat"
+	mymob.fov.name = "FOV"
+	mymob.fov.screen_loc = "1,1"
+	mymob.fov.mouse_opacity = 0
+	mymob.fov.layer = 18
+	mymob.fov.plane = 0
+
 	lingchemdisplay = new /obj/screen/ling/chems()
 	lingchemdisplay.screen_loc = ui_lingchemdisplay
 
@@ -300,6 +309,7 @@
 
 	mymob.client.screen = list()
 
+	mymob.client.screen += mymob.fov
 	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.internals, mymob.healths, mymob.healthdoll, mymob.pullin, lingchemdisplay, lingstingdisplay) //, mymob.hands, mymob.rest, mymob.sleep) //, mymob.mach )
 	mymob.client.screen += adding + hotkeybuttons
 	mymob.client.screen += mymob.client.void

@@ -323,6 +323,7 @@
 	else
 		if(dx > 0)	dir = EAST
 		else		dir = WEST
+	update_vision_cone()
 
 /obj/screen/click_catcher
 	icon = 'icons/mob/screen_full.dmi'

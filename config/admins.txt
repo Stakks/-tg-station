@@ -8,7 +8,9 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 8chanserverhost = Game Master
-SpaghettiScience = Midiadmin
+M00nM4nHere = Midiplayer
+Maximus Autisma = Trial Moderator
+DerFlammenwerfer = Trial Moderator
 VixG = Badmin
 Solovale = Admin Candidate
 Dwarvenbuffet = Coder

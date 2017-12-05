@@ -33,8 +33,15 @@
 	desc = "Looks like nobody has touched this in a while."
 
 
-//Making the station dirty, one tile at a time. Called by master controller's setup_objects
 
+
+/* NOTE: We can make this much faster by just moving the whole code to the MC's code block.
+Since it iterates every tile, we can save a little time by avoiding func call overhead, especially
+if we just exit immediately for invalid tiles
+
+see objects.dm
+
+//Making the station dirty, one tile at a time. Called by master controller's setup_objects
 /turf/simulated/floor/proc/MakeDirty()
 	if(prob(66))	//fastest possible exit 2/3 of the time
 		return
@@ -127,3 +134,4 @@
 		return
 
 	return
+*/

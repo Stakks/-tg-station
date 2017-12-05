@@ -4,6 +4,7 @@
 	weight = 10
 	max_occurrences = 4
 	earliest_start = 6000
+	min_pop = 10 //works much better on mid-high pop
 
 /datum/round_event/spontaneous_appendicitis/start()
 	for(var/mob/living/carbon/human/H in shuffle(living_mob_list))

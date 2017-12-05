@@ -628,6 +628,7 @@
 			H.overlay_fullscreen("tint", /obj/screen/fullscreen/impaired, 12)
 		if(H.tinttotal >= TINT_BLIND)
 			H.health_status.vision_blindness = max(H.health_status.vision_blindness, 4)
+			H.health_status.vision_blindness_intensity = 5
 	else
 		H.clear_fullscreen("tint")
 		

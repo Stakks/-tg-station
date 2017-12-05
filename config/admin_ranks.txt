@@ -27,12 +27,13 @@
 # +SPAWN (or +CREATE) = mob transformations, spawning of most atoms including mobs (high-risk atoms, e.g. blackholes, will require the +FUN flag too)
 # +EVERYTHING (or +HOST or +ALL) = Simply gives you everything without having to type every flag
 
-Admin Candidate	= +ADMIN
-Moderator		= +@ +BAN
+Admin Candidate	= +ADMIN +BAN
+Moderator		= +ADMIN +BAN
+Trial Moderator = +ADMIN +BAN
 Badmin			= +@ +SPAWN +REJUV +VAREDIT +FUN +POSSESS +BUILD +SOUND
 Game Admin		= +@ +STEALTH +DEBUG
 Game Master		= +EVERYTHING
 Host			= +EVERYTHING
-Midiadmin       = +SOUND
+Midiplayer      = +SOUND
 Coder			= +DEBUG +VAREDIT +SERVER +SPAWN +BUILD
 Midicoder		= +@ +SOUND

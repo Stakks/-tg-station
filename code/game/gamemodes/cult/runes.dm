@@ -947,6 +947,7 @@ obj/effect/rune/proc/raise()
 				continue
 			C.health_status.vision_blurry += 50
 			C.health_status.vision_blindness += 20
+			C.health_status.vision_blindness_intensity = 11
 			if(prob(5))
 				C.disabilities |= NEARSIGHT
 				if(prob(10))

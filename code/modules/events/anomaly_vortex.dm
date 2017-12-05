@@ -3,6 +3,7 @@
 	typepath = /datum/round_event/anomaly/anomaly_vortex
 	max_occurrences = 2
 	weight = 5
+	min_pop = 10 //dangerous and destructive event
 
 /datum/round_event/anomaly/anomaly_vortex
 	startWhen = 10

@@ -218,6 +218,7 @@
 	if (stat == DEAD)
 		lying = 1
 		health_status.vision_blindness = max(health_status.vision_blindness, 1)
+		health_status.vision_blindness_intensity = 11
 	else
 		if(stunned > 0)
 			AdjustStunned(-1)
@@ -231,6 +232,7 @@
 
 	if(health_status.vision_blindness)
 		health_status.vision_blindness = 0
+		health_status.vision_blindness_intensity = 11
 
 	setEarDamage((health_status.aural_audio_intensity < 25 ? 0 : health_status.aural_audio_intensity),(disabilities & DEAF ? 1 :0))
 
@@ -238,6 +240,7 @@
 
 	if(disabilities & BLIND)
 		health_status.vision_blindness = max(health_status.vision_blindness, 1)
+		health_status.vision_blindness_intensity = 11
 
 	if(health_status.vision_blurry > 0)
 		health_status.vision_blurry = 0

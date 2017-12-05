@@ -6,6 +6,7 @@
 	typepath = /datum/round_event/ion_storm
 	weight = 15
 	announcement = 1
+	min_pop = 5 //normal event
 
 /datum/round_event/ion_storm
 	var/botEmagChance = 10

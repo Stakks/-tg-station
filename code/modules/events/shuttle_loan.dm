@@ -9,6 +9,7 @@
 	max_occurrences = 5
 	earliest_start = 0
 	announcement = 1 //Cruel!
+	min_pop = 5 //normal event
 
 /datum/round_event/shuttle_loan
 	endWhen = 500

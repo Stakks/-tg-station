@@ -817,6 +817,7 @@ var/list/slot_equipment_priority = list( \
 		if(layer == MOB_LAYER - 0.2)
 			layer = initial(layer)
 	update_transform()
+	update_vision_cone()
 	lying_prev = lying
 	return canmove
 
@@ -829,6 +830,7 @@ var/list/slot_equipment_priority = list( \
 	set hidden = 1
 	if(!canface())	return 0
 	dir = EAST
+	update_vision_cone()
 	client.move_delay += movement_delay()
 	return 1
 
@@ -837,6 +839,7 @@ var/list/slot_equipment_priority = list( \
 	set hidden = 1
 	if(!canface())	return 0
 	dir = WEST
+	update_vision_cone()
 	client.move_delay += movement_delay()
 	return 1
 
@@ -845,6 +848,7 @@ var/list/slot_equipment_priority = list( \
 	set hidden = 1
 	if(!canface())	return 0
 	dir = NORTH
+	update_vision_cone()
 	client.move_delay += movement_delay()
 	return 1
 
@@ -853,6 +857,7 @@ var/list/slot_equipment_priority = list( \
 	set hidden = 1
 	if(!canface())	return 0
 	dir = SOUTH
+	update_vision_cone()
 	client.move_delay += movement_delay()
 	return 1
 

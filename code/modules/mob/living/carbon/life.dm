@@ -291,12 +291,14 @@
 
 	if(stat == DEAD)
 		health_status.vision_blindness = max(health_status.vision_blindness, 1)
+		health_status.vision_blindness_intensity = 11
 		silent = 0
 	else
 		updatehealth()
 		if(health <= config.health_threshold_dead)
 			death()
 			health_status.vision_blindness = max(health_status.vision_blindness, 1)
+			health_status.vision_blindness_intensity = 11
 			silent = 0
 			return 1
 		else if(organsystem)
@@ -304,6 +306,7 @@
 			if(!(B && B.exists()))
 				death()
 				health_status.vision_blindness = max(health_status.vision_blindness, 1)
+				health_status.vision_blindness_intensity = 11
 				silent = 0
 				return 1
 
@@ -409,6 +412,7 @@
 	//Eyes
 	if(stat)
 		health_status.vision_blindness = max(health_status.vision_blindness, 5)
+		health_status.vision_blindness_intensity = 11
 	if(!(disabilities & BLIND) && exists("eyes"))	//blindness from disability or unconsciousness doesn't get better on its own
 		if(health_status.vision_blindness)			//blindness, heals slowly over time
 			health_status.vision_blindness = max(health_status.vision_blindness-1,0)
@@ -416,6 +420,11 @@
 			health_status.vision_blurry = max(health_status.vision_blurry-1, 0)
 	else
 		health_status.vision_blindness = max(health_status.vision_blindness,1) //Force blindness if user is actually blind
+		health_status.vision_blindness_intensity = 11
+		
+	if(!BLIND)
+		health_status.vision_blindness_intensity = 0
+		
 	//Ears
 	if(disabilities & DEAF)		//disabled-deaf, doesn't get better on its own
 		setEarDamage(-1, max(health_status.aural_audio, 1))

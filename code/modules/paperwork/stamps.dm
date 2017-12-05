@@ -23,7 +23,7 @@
 	item_color = "qm"
 
 /obj/item/weapon/stamp/law
-	name = "law office's rubber stamp"
+	name = "Nanotrasen Office's rubber stamp"
 	icon_state = "stamp-law"
 	item_color = "cargo"
 
