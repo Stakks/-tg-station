@@ -333,6 +333,10 @@ proc/process_ghost_teleport_locs()
 	name = "Thunderdome (Observer.)"
 	icon_state = "purple"
 
+/area/abandoneddock
+	name = "NT medical docking bay"
+	icon_state = "purple"
+
 //ENEMY
 
 /area/chrono_station
