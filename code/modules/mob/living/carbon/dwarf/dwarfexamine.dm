@@ -1,4 +1,4 @@
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/dwarf/examine(mob/user)
 
 	var/list/obscured = check_obscured_slots()
 	var/skipface = 0
