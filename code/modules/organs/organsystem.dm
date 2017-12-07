@@ -110,9 +110,21 @@
 		var/datum/organ/abstract/groin/G = organlist["groin"]
 		var/obj/item/organ/abstract/groin 	= G.organitem
 		organlist["butt"]					= new/datum/organ/limb/butt(groin, new/obj/item/organ/limb/butt())
-		organlist["dwarf liver"]				= new/datum/organ/internal/dwarf/liver(groin, new/obj/item/organ/internal/dwarf/liver())
+		organlist["dwarf liver"]			= new/datum/organ/internal/dwarf/liver(groin, new/obj/item/organ/internal/dwarf/liver())
+		organlist["appendix"]				= new/datum/organ/internal/appendix(groin, new/obj/item/organ/internal/appendix())
 		organlist["kidneys"]				= new/datum/organ/internal/kidneys(groin, new/obj/item/organ/internal/kidneys())
 
+		organlist["cyberimp_chest"] 		= new/datum/organ/internal/cyberimp/chest(coreitem, null)
+		organlist["cyberimp_brain"]		= new/datum/organ/internal/cyberimp/brain(head, null)
+
+		var/datum/organ/abstract/M = get_organ("mouth")
+		var/obj/item/organ/abstract/mouth/mouth = M.organitem
+		organlist["hivenode"]		= new/datum/organ/internal/alien/hivenode(head, null)
+		organlist["plasmavessel"]	= new/datum/organ/internal/alien/plasmavessel(coreitem, null)
+		organlist["resinspinner"]		= new/datum/organ/internal/alien/resinspinner(mouth, null)
+		organlist["acidgland"]			= new/datum/organ/internal/alien/acidgland(mouth, null)
+		organlist["toxingland"]			= new/datum/organ/internal/alien/toxingland(mouth, null)
+		organlist["eggsac"]					= new/datum/organ/internal/alien/eggsac(groin, null)
 
 /datum/organsystem/humanoid/monkey	//And also human. Kinda want to make monkey organs have defects to prevent easy transplants
 
