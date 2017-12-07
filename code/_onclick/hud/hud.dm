@@ -122,6 +122,8 @@
 		blob_hud()
 	else if(isswarmer(mymob))
 		swarmer_hud()
+	else if(istype(mymob, /mob/living/carbon/dwarf))
+		dwarf_hud(ui_style)
 
 
 
