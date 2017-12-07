@@ -22,8 +22,9 @@
 
 	// for spawned dorfs; overwritten by other code
 	ready_dna(src)
+	randomize_human(src)
 
-	make_blood(800)
+	make_blood()
 
 	set_skin_tone(skin_tone)	//So DNA gets it set properly
 
