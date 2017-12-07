@@ -19,6 +19,26 @@
 		return 1
 
 /*
+ DORFS
+*/
+
+/datum/species/dwarf
+	name = "Dwarf"
+	id = "dwarf"
+	roundstart = 0
+	specflags = list(EYECOLOR,HAIR,FACEHAIR,LIPS,MUTCOLORS)
+	use_skintones = 1
+
+/datum/species/dwarf/handle_chemicals(datum/reagent/chem, mob/living/carbon/dwarf/H)
+	if(chem.id == "mutationtoxin")
+		H << "<span class='danger'>Your flesh rapidly mutates!</span>"
+		hardset_dna(H, null, null, null, null, /datum/species/slime)
+		H.regenerate_icons()
+		H.reagents.del_reagent(chem.type)
+		H.faction |= "slime"
+		return 1
+
+/*
  LIZARDPEOPLE
 */
 

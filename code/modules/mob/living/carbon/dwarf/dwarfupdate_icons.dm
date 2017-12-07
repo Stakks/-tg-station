@@ -657,43 +657,6 @@ Please contact me on #coderbus IRC. ~Carnie x
 /mob/living/carbon/dwarf
 	var/icon_render_key = ""
 
-//simplifies species and mutations into one var
-/obj/item/organ/limb/proc/get_race_dwarf()
-
-	var/sm_type = "human"
-	if(dna)
-		var/datum/species/race = dna ? dna.species : null
-		if(race)
-			sm_type = race.id
-		if(HULK in dna.mutations)
-			sm_type = "hulk"
-
-	else sm_type = "non-human"
-	if(owner && owner.disabilities & HUSK)
-		sm_type = "husk"
-	return sm_type
-
-/obj/item/organ/limb/dwarf/proc/has_color_dwarf()
-	if(owner && owner.disabilities & HUSK)
-		return 0
-	if(dna)
-		var/datum/species/race = dna ? dna.species : null
-		if(race)
-			if(MUTCOLORS in race.specflags)
-				return 1
-	return 0
-
-/obj/item/organ/limb/dwarf/proc/has_gender_dwarf()
-	if(owner && owner.disabilities & HUSK)
-		return 0
-	//Robot limbs have gendered appearance, but no DNA
-	if(organtype == ORGAN_ROBOTIC)
-		return 1
-	if(dna)
-		var/datum/species/race = dna ? dna.species : null
-		if(race)
-			return race.sexes
-	return 0
 
 //produces a key based on the human's limbs
 /mob/living/carbon/dwarf/proc/generate_icon_render_key()
@@ -713,7 +676,7 @@ Please contact me on #coderbus IRC. ~Carnie x
 					var/race = LI.get_race()
 					. += "[race]"
 					switch(race)
-						if("human" || "plant" || "lizard")
+						if("plant" || "lizard" || "dwarf")
 							. += "-coloured-[LI.dna.mutant_color]"
 						else
 							. += "-not_coloured"
