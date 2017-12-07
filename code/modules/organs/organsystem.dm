@@ -94,6 +94,26 @@
 
 		organlist["cavity"]	= new/datum/organ/cavity(coreitem, null)
 
+/datum/organsystem/humanoid/dwarf	//Booze is love, booze is life
+
+	New(var/mob/O)
+		..(O)
+
+		organlist["heart"]					= new/datum/organ/internal/heart(coreitem, new/obj/item/organ/internal/heart())
+		organlist["lungs"]					= new/datum/organ/internal/lungs(coreitem, new/obj/item/organ/internal/lungs())
+
+		var/datum/organ/limb/head/H = get_organ("head")
+		var/obj/item/organ/limb/head/head = H.organitem
+		organlist["eyes"]	= new/datum/organ/internal/eyes(head, new/obj/item/organ/internal/eyes())
+		organlist["brain"]	= new/datum/organ/internal/brain(head, new/obj/item/organ/internal/brain())
+
+		var/datum/organ/abstract/groin/G = organlist["groin"]
+		var/obj/item/organ/abstract/groin 	= G.organitem
+		organlist["butt"]					= new/datum/organ/limb/butt(groin, new/obj/item/organ/limb/butt())
+		organlist["dwarf liver"]				= new/datum/organ/internal/dwarf/liver(groin, new/obj/item/organ/internal/dwarf/liver())
+		organlist["kidneys"]				= new/datum/organ/internal/kidneys(groin, new/obj/item/organ/internal/kidneys())
+
+
 /datum/organsystem/humanoid/monkey	//And also human. Kinda want to make monkey organs have defects to prevent easy transplants
 
 	New(var/mob/O)
