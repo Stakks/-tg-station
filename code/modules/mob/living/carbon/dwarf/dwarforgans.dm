@@ -65,7 +65,7 @@
 /mob/living/carbon/Stat()
 	..()
 	if(statpanel("Status"))
-		var/datum/organ/internal/dwarf/liver/vessel = get_organdatum("plasmavessel")
+		var/datum/organ/internal/dwarf/liver/vessel = get_organdatum("dwarf liver")
 		if(vessel && vessel.exists())
 			var/obj/item/organ/internal/dwarf/liver/PV = vessel.organitem
 			stat(null, "Booze Stored: [PV.storedBooze]/[PV.max_booze]")
