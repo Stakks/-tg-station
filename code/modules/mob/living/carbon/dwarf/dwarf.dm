@@ -22,7 +22,7 @@
 
 	// for spawned dorfs; overwritten by other code
 	ready_dna(src)
-	randomize_human(src)
+	randomize_dwarf(src)
 
 	make_blood()
 
