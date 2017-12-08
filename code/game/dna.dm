@@ -90,7 +90,7 @@
 			L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color)
 			L[DNA_SKIN_TONE_BLOCK] = construct_block(skin_tones.Find(H.skin_tone), skin_tones.len)
 			L[DNA_EYE_COLOR_BLOCK] = sanitize_hexcolor(H.eye_color)
-		else if(istype(character, /mob/living/carbon/dwarf))
+		else if(istype(character, /mob/living/carbon/human))
 			var/mob/living/carbon/dwarf/H = character
 			if(!H.dna.species)
 				hardset_dna(H, null, null, null, null, /datum/species/dwarf)
@@ -182,7 +182,7 @@
 	return
 
 /proc/check_dna_integrity(mob/living/carbon/character)
-	if(!character || !(istype(character, /mob/living/carbon/human) || !(istype(character, /mob/living/carbon/dwarf) || istype(character, /mob/living/carbon/monkey)))) //Evict xenos from carbon 2012
+	if(!character || !(istype(character, /mob/living/carbon/human) || istype(character, /mob/living/carbon/monkey))) //Evict xenos from carbon 2012
 		return
 	if(!character.dna)
 		if(ready_dna(character))
@@ -198,7 +198,7 @@
 	return character.dna
 
 /proc/ready_dna(mob/living/carbon/character, blood_type)
-	if(!istype(character, /mob/living/carbon/monkey) || !istype(character, /mob/living/carbon/human) || !istype(character, /mob/living/carbon/dwarf))
+	if(!istype(character, /mob/living/carbon/monkey) && !istype(character, /mob/living/carbon/human) && !istype(character, /mob/living/carbon/dwarf))
 		return
 	if(!character.dna)
 		create_dna(character)
