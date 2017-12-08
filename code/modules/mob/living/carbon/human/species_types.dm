@@ -28,6 +28,7 @@
 	roundstart = 1
 	nojumpsuit = 1
 	darksight = 1
+	default_color = "E8B59B"
 	speedmod = 0.75
 	brutemod = 0.75
 	burnmod = 0.75
@@ -38,7 +39,7 @@
 	cold_slow = 200
 	hot_slow = 420
 	specflags = list(EYECOLOR,HAIR,FACEHAIR,LIPS,MUTCOLORS,HARDFEET)
-	use_skintones = 1
+	use_skintones = 0
 	/mob/living/carbon/human/ContractDisease(var/datum/disease/dwarfism)
 	/mob/living/carbon/human/add_organ(var/datum/organ/internal/dwarf/liver)
 
