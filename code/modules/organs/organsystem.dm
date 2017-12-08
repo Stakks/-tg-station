@@ -163,7 +163,7 @@
 		organlist["acidgland"]			= new/datum/organ/internal/alien/acidgland(mouth, null)
 		organlist["toxingland"]			= new/datum/organ/internal/alien/toxingland(mouth, null)
 		organlist["eggsac"]					= new/datum/organ/internal/alien/eggsac(groin, null)
-		organlist["dwarf liver"]			= new/datum/organ/internal/dwarf/liver(chest, null)
+		organlist["dwarf liver"]			= new/datum/organ/internal/dwarf/liver(coreitem, null)
 
 /datum/organsystem/alienlarva/	//Ayy lmao
 
