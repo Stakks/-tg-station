@@ -40,7 +40,7 @@
 	hot_slow = 420
 	specflags = list(EYECOLOR,HAIR,FACEHAIR,LIPS,MUTCOLORS,HARDFEET)
 	use_skintones = 0
-	/mob/living/carbon/human/ContractDisease(var/datum/disease/dwarfism)
+	/mob/living/carbon/human/HasDisease(var/datum/disease/dwarfism)
 	/mob/living/carbon/human/add_organ(var/datum/organ/internal/dwarf/liver)
 
 /datum/species/dwarf/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
