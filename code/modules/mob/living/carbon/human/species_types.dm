@@ -25,7 +25,7 @@
 /datum/species/dwarf
 	name = "Dwarf"
 	id = "dwarf"
-	roundstart = 1
+	roundstart = 0
 	nojumpsuit = 1
 	darksight = 1
 	default_color = "E8B59B"
