@@ -19,6 +19,40 @@
 		return 1
 
 /*
+ DORFS
+*/
+
+/datum/species/dwarf
+	name = "Dwarf"
+	id = "dwarf"
+	roundstart = 0
+	nojumpsuit = 1
+	darksight = 1
+	default_color = "E8B59B"
+	speedmod = 0.75
+	brutemod = 0.75
+	burnmod = 0.75
+	coldmod = 0.25
+	heatmod = 1.50
+	punchmod = 5
+	safe_toxins_max = 8
+	cold_slow = 200
+	hot_slow = 420
+	specflags = list(EYECOLOR,HAIR,FACEHAIR,LIPS,MUTCOLORS,HARDFEET)
+	use_skintones = 0
+	/mob/living/carbon/human/HasDisease(var/datum/disease/dwarfism)
+	/mob/living/carbon/human/add_organ(var/datum/organ/internal/dwarf/liver)
+
+/datum/species/dwarf/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
+	if(chem.id == "mutationtoxin")
+		H << "<span class='danger'>Your flesh rapidly mutates!</span>"
+		hardset_dna(H, null, null, null, null, /datum/species/slime)
+		H.regenerate_icons()
+		H.reagents.del_reagent(chem.type)
+		H.faction |= "slime"
+		return 1
+
+/*
  LIZARDPEOPLE
 */
 

@@ -34,6 +34,11 @@
 	name = "liver"
 	organitem_type = /obj/item/organ/internal/liver
 
+/datum/organ/internal/dwarf/liver
+	name = "dwarf liver"
+	vital = 1
+	organitem_type = /obj/item/organ/internal/dwarf/liver
+
 /datum/organ/internal/kidneys
 	name = "kidneys"
 	organitem_type = /obj/item/organ/internal/kidneys

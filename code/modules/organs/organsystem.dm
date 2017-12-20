@@ -94,6 +94,38 @@
 
 		organlist["cavity"]	= new/datum/organ/cavity(coreitem, null)
 
+/datum/organsystem/humanoid/dwarf	//Booze is love, booze is life
+
+	New(var/mob/O)
+		..(O)
+
+		organlist["heart"]					= new/datum/organ/internal/heart(coreitem, new/obj/item/organ/internal/heart())
+		organlist["lungs"]					= new/datum/organ/internal/lungs(coreitem, new/obj/item/organ/internal/lungs())
+
+		var/datum/organ/limb/head/H = get_organ("head")
+		var/obj/item/organ/limb/head/head = H.organitem
+		organlist["eyes"]	= new/datum/organ/internal/eyes(head, new/obj/item/organ/internal/eyes())
+		organlist["brain"]	= new/datum/organ/internal/brain(head, new/obj/item/organ/internal/brain())
+
+		var/datum/organ/abstract/groin/G = organlist["groin"]
+		var/obj/item/organ/abstract/groin 	= G.organitem
+		organlist["butt"]					= new/datum/organ/limb/butt(groin, new/obj/item/organ/limb/butt())
+		organlist["dwarf liver"]			= new/datum/organ/internal/dwarf/liver(groin, new/obj/item/organ/internal/dwarf/liver())
+		organlist["appendix"]				= new/datum/organ/internal/appendix(groin, new/obj/item/organ/internal/appendix())
+		organlist["kidneys"]				= new/datum/organ/internal/kidneys(groin, new/obj/item/organ/internal/kidneys())
+
+		organlist["cyberimp_chest"] 		= new/datum/organ/internal/cyberimp/chest(coreitem, null)
+		organlist["cyberimp_brain"]		= new/datum/organ/internal/cyberimp/brain(head, null)
+
+		var/datum/organ/abstract/M = get_organ("mouth")
+		var/obj/item/organ/abstract/mouth/mouth = M.organitem
+		organlist["hivenode"]		= new/datum/organ/internal/alien/hivenode(head, null)
+		organlist["plasmavessel"]	= new/datum/organ/internal/alien/plasmavessel(coreitem, null)
+		organlist["resinspinner"]		= new/datum/organ/internal/alien/resinspinner(mouth, null)
+		organlist["acidgland"]			= new/datum/organ/internal/alien/acidgland(mouth, null)
+		organlist["toxingland"]			= new/datum/organ/internal/alien/toxingland(mouth, null)
+		organlist["eggsac"]					= new/datum/organ/internal/alien/eggsac(groin, null)
+
 /datum/organsystem/humanoid/monkey	//And also human. Kinda want to make monkey organs have defects to prevent easy transplants
 
 	New(var/mob/O)
@@ -131,6 +163,7 @@
 		organlist["acidgland"]			= new/datum/organ/internal/alien/acidgland(mouth, null)
 		organlist["toxingland"]			= new/datum/organ/internal/alien/toxingland(mouth, null)
 		organlist["eggsac"]					= new/datum/organ/internal/alien/eggsac(groin, null)
+		organlist["dwarf liver"]			= new/datum/organ/internal/dwarf/liver(coreitem, null)
 
 /datum/organsystem/alienlarva/	//Ayy lmao
 

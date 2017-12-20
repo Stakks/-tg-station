@@ -90,6 +90,20 @@
 			L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color)
 			L[DNA_SKIN_TONE_BLOCK] = construct_block(skin_tones.Find(H.skin_tone), skin_tones.len)
 			L[DNA_EYE_COLOR_BLOCK] = sanitize_hexcolor(H.eye_color)
+		else if(istype(character, /mob/living/carbon/human))
+			var/mob/living/carbon/dwarf/H = character
+			if(!H.dna.species)
+				hardset_dna(H, null, null, null, null, /datum/species/dwarf)
+			if(!hair_styles_list.len)
+				init_sprite_accessory_subtypes(/datum/sprite_accessory/hair, hair_styles_list, hair_styles_male_list, hair_styles_female_list)
+			L[DNA_HAIR_STYLE_BLOCK] = construct_block(hair_styles_list.Find(H.hair_style), hair_styles_list.len)
+			L[DNA_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.hair_color)
+			if(!facial_hair_styles_list.len)
+				init_sprite_accessory_subtypes(/datum/sprite_accessory/facial_hair, facial_hair_styles_list, facial_hair_styles_male_list, facial_hair_styles_female_list)
+			L[DNA_FACIAL_HAIR_STYLE_BLOCK] = construct_block(facial_hair_styles_list.Find(H.facial_hair_style), facial_hair_styles_list.len)
+			L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color)
+			L[DNA_SKIN_TONE_BLOCK] = construct_block(skin_tones.Find(H.skin_tone), skin_tones.len)
+			L[DNA_EYE_COLOR_BLOCK] = sanitize_hexcolor(H.eye_color)
 
 	for(var/i=1, i<=DNA_UNI_IDENTITY_BLOCKS, i++)
 		if(L[i])	. += L[i]
@@ -128,7 +142,7 @@
 		return message
 
 /proc/hardset_dna(mob/living/carbon/owner, ui, se, real_name, blood_type, datum/species/mrace, mcolor)
-	if(!istype(owner, /mob/living/carbon/monkey) && !istype(owner, /mob/living/carbon/human))
+	if(!istype(owner, /mob/living/carbon/monkey) && !istype(owner, /mob/living/carbon/human) && !istype(owner, /mob/living/carbon/dwarf))
 		return
 	if(!owner.dna)
 		create_dna(owner, mrace)
@@ -184,7 +198,7 @@
 	return character.dna
 
 /proc/ready_dna(mob/living/carbon/character, blood_type)
-	if(!istype(character, /mob/living/carbon/monkey) && !istype(character, /mob/living/carbon/human))
+	if(!istype(character, /mob/living/carbon/monkey) && !istype(character, /mob/living/carbon/human) && !istype(character, /mob/living/carbon/dwarf))
 		return
 	if(!character.dna)
 		create_dna(character)
